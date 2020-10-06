@@ -34,7 +34,7 @@ router.get('/user/:userId', async (req, res) => {
       return res.status(400).json({ msg: 'Invalid object ID' });
     }
 
-    res.status(500).send('Server error...');
+    res.status(500).send('Server error....');
   }
 });
 module.exports = router;
