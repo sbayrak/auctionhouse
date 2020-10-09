@@ -31,6 +31,9 @@ const AdvertSchema = mongoose.Schema({
       user: {
         type: mongoose.Schema.Types.ObjectId,
       },
+      advertNo: {
+        type: String,
+      },
       bid: {
         type: String,
         required: true,

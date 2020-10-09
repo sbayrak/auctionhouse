@@ -5,6 +5,7 @@ const config = require('config');
 const mongoose = require('mongoose');
 const User = require('../../models/User');
 const { body, validationResult } = require('express-validator');
+const Advert = require('../../models/Advert');
 
 // @route   GET /api/profile/me
 // @desc    Get current logged user
@@ -122,7 +123,8 @@ router.delete('/me', auth, async (req, res) => {
     await User.findOneAndRemove({ _id: req.user.id });
     // @@TODO
     // REMOVE ADVERTS ALSO
-    res.json({ msg: 'user deleted...' });
+    await Advert.deleteMany({ user: req.user.id });
+    res.json({ msg: 'user and adverts deleted...' });
   } catch (err) {
     console.error(err.message);
     res.status(500).send('Server error...');

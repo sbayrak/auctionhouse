@@ -46,6 +46,7 @@ router.post(
     advertFields.title = title;
     advertFields.text = text;
     advertFields.status = false;
+    advertFields.accepted = {};
 
     try {
       let user = await User.findById(req.user.id).select('-password');
@@ -101,39 +102,85 @@ router.get('/myadverts', auth, async (req, res) => {
 
 // @route   GET /api/adverts/mybids
 // @desc    Get bids that I made
-// @access  Private
+// @access  Private.
 router.get('/mybids', auth, async (req, res) => {
   try {
-    let adverts = await Advert.find({
-      'bids.user': req.user.id,
-    }).select('-rest');
+    let adverts = await Advert.find();
 
-    // const bidsByMe = adverts.filter(
-    //   (advert) => advert.bids.user === req.user.id
-    // );
-    // const bidsByMe = adverts.filter((ad) =>
-    //   ad.bids.some((bid) => bid.user === req.user.id)
-    // );
-    // let bidsByMe = {};
-    // let mybids = [];
-    // for (let x in adverts) {
-    //   let bid = adverts[x].bids;
-    //   for (let y in bid) {
-    //     let bidUser = bid[x];
-    //     if (bidUser === req.user.id) {
-    //       bidsByMe.adId = adverts[x].id;
-    //       bidsByMe.title = adverts[x].title;
-    //       bidsByMe.date = adverts[x].date;
-    //       bidsByMe.bid = bid[y].bid;
-    //       mybids.push(bidsByMe);
-    //     }
-    //   }
-    // }
+    let mybids = [];
+    let bidsByMe = [];
+    for (let x in adverts) {
+      let bid = adverts[x].bids;
 
-    res.json(adverts);
+      for (let y in bid) {
+        let innerBid = bid[y];
+        mybids.push(innerBid);
+      }
+    }
+
+    for (let x in mybids) {
+      let bid = mybids[x];
+
+      if (bid.user == req.user.id) {
+        bidsByMe.push(bid);
+      }
+    }
+
+    res.json(bidsByMe);
   } catch (err) {
     console.error(err.message);
     res.status(500).send('Server Error...');
+  }
+});
+
+// @route   POST /api/adverts/accept/:advertId
+// @desc    Accept a bid
+// @access  Private
+router.post('/accept/:advertId/:bidId', auth, async (req, res) => {
+  try {
+    let advert = await Advert.findById(req.params.advertId);
+    let advertOwner = await User.findById(req.user.id).select('-password');
+    let acceptedBid = advert.bids.find((bid) => bid.id == req.params.bidId);
+
+    const acceptedFields = {};
+    acceptedFields.user = advert.user;
+    acceptedFields.bidderId = acceptedBid.user;
+    acceptedFields.bidderCompany = acceptedBid.company;
+    acceptedFields.bid = acceptedBid.bid;
+    acceptedFields.date = Date.now();
+
+    advert = await Advert.findByIdAndUpdate(
+      {
+        _id: req.params.advertId,
+      },
+      {
+        $set: { status: true, accepted: acceptedFields },
+      },
+      {
+        new: true,
+      }
+    );
+    res.json(advert);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server error...');
+  }
+});
+
+// @route   GET /api/adverts/accepted-bids
+// @desc    Get my accepted bids
+// @access  Private
+router.get('/accepted-bids', auth, async (req, res) => {
+  try {
+    let adverts = await Advert.find();
+    const myAcceptedBids = adverts
+      .map((advert) => advert.accepted)
+      .filter((accept) => JSON.stringify(accept) !== '{}');
+
+    res.json(myAcceptedBids);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server error...');
   }
 });
 
@@ -158,6 +205,7 @@ router.put(
 
       let bidFields = {};
       bidFields.user = req.user.id;
+      bidFields.advertNo = req.params.advertId;
       bidFields.bid = bid;
       bidFields.company = user.company;
       bidFields.avatar = user.avatar;
@@ -171,5 +219,99 @@ router.put(
     }
   }
 );
+
+// @route   POST /api/adverts/comment/:id
+// @desc    Comment on an advert
+// @access  Private
+router.post(
+  '/comment/:id',
+  [auth, [body('text', 'Please enter a text').not().isEmpty()]],
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
+    try {
+      let advert = await Advert.findById(req.params.id);
+      let user = await User.findById(req.user.id);
+      let newComment = {};
+      newComment.user = user.id;
+      newComment.text = req.body.text;
+      newComment.company = user.company;
+      newComment.avatar = user.avatar;
+
+      advert.comments.unshift(newComment);
+      await advert.save();
+
+      res.json(advert.comments);
+    } catch (err) {
+      console.error(err.message);
+      res.status(500).send('Server error...');
+    }
+  }
+);
+
+// @route   DELETE /api/adverts/comment/:id/:commentId
+// @desc    Delete a comment
+// @access  Private
+router.delete('/comment/:id/:commentId', auth, async (req, res) => {
+  try {
+    const advert = await Advert.findById(req.params.id);
+
+    // PULL OUT COMMENT
+    const comment = advert.comments.find(
+      (comment) => comment.id == req.params.commentId
+    );
+
+    // MAKE SURE COMMENT EXISTS
+    if (!comment) {
+      res.status(404).json({ msg: 'Comment does not exists' });
+    }
+
+    // Check user
+    if (comment.user.toString() !== req.user.id) {
+      res.status(401).json({ msg: 'User not authorized' });
+    }
+
+    const removeIndex = advert.comments
+      .map((comment) => comment.user.toString())
+      .indexOf(req.user.id);
+    advert.comments.splice(removeIndex, 1);
+
+    await advert.save();
+
+    res.json(advert.comments);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server error...');
+  }
+});
+
+// @route   DELETE /api/adverts/:advertId
+// @desc    Delete an advert
+// @access  Private
+router.delete('/:advertId', auth, async (req, res) => {
+  try {
+    let advert = await Advert.findById(req.params.advertId);
+
+    if (!advert) {
+      return res.status(404).json({ msg: 'Advert not found...' });
+    }
+
+    // CHECK USER
+    if (advert.user != req.user.id) {
+      return res.status(401).json({ msg: 'User not authorized...' });
+    }
+
+    await advert.remove();
+    res.json({ msg: 'Advert removed...' });
+  } catch (err) {
+    if (!mongoose.Types.ObjectId.isValid(req.params.advertId)) {
+      return res.status(404).json({ msg: 'Post not found' });
+    }
+    res.status(500).send('Server error...');
+  }
+});
 
 module.exports = router;
