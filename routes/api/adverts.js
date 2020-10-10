@@ -121,7 +121,7 @@ router.get('/mybids', auth, async (req, res) => {
     for (let x in mybids) {
       let bid = mybids[x];
 
-      if (bid.user == req.user.id) {
+      if (bid.user.toString() === req.user.id) {
         bidsByMe.push(bid);
       }
     }
