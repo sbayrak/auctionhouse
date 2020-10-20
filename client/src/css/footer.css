@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  list-style: none;
+}
+
+body {
+  background-color: #fff;
+}
+footer {
+  position: relative;
+  bottom: 0;
+  margin-top: 180px;
+  height: 250px;
+  background-color: #7ba5cf;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
+}
+
+footer .left {
+  padding: 5px;
+}
+footer .left .left-span {
+  font-size: 30px;
+  color: #fff;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+footer .left span img {
+  width: 40px;
+}
+
+footer .left .social {
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 28px;
+  margin-bottom: 50px;
+}
+
+footer .left .social a {
+  width: 40px;
+  text-align: center;
+  background-color: #7ba5cf;
+  color: #fff;
+  transition: 0.5s ease;
+  border-radius: 5px;
+  border: 1px solid #7ba5cf;
+}
+
+footer .left .social a:hover {
+  background-color: #fff;
+  color: #7ba5cf;
+}
+footer .left .copy {
+  font-size: 14px;
+  text-align: center;
+  color: #e3e3e3;
+  font-style: italic;
+}
+
+footer .mid {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+footer .mid .mid-title {
+  text-align: center;
+  font-size: 30px;
+  color: #fff;
+  font-weight: 600;
+  margin-bottom: 50px;
+  margin-top: -60px;
+}
+footer .mid p {
+  width: calc(100% - 50px);
+  margin-left: 25px;
+  text-align: center;
+  color: #fff;
+}
+
+footer .right {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+footer .right .right-title {
+  text-align: center;
+  font-size: 30px;
+  color: #fff;
+  font-weight: 600;
+  margin-bottom: 50px;
+}
+
+footer .right p {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 14px;
+  color: #fff;
+}
+
+footer .right h5 {
+  text-align: center;
+  font-style: italic;
+  color: #fff;
+  font-weight: 400;
+  font-size: 18px;
+}

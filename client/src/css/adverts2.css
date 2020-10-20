@@ -1,0 +1,152 @@
+/* #7ba5cf */
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  list-style: none;
+}
+
+body {
+  background-color: #e3e3e3;
+}
+.wrapper {
+  width: calc(100% - 500px);
+  margin-left: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: 150px;
+  /* border: 1px solid black; */
+}
+.wrapper #title {
+  width: 100%;
+  font-size: 28px;
+  color: #7ba5cf;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+.wrapper .all-adverts {
+  width: 100%;
+  position: relative;
+  background-color: #7ba5cf;
+  border-radius: 5px;
+  top: 40px;
+  /* border: 1px solid black; */
+  box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.2);
+}
+
+.wrapper .all-adverts .single-advert {
+  width: calc(100% - 40px);
+  margin-left: 20px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  background-color: rgb(214, 214, 214);
+  padding: 10px;
+  box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.2);
+  position: relative;
+  top: 20px;
+}
+.wrapper .all-adverts .single-advert .single-advert-top {
+  width: calc(100% - 30px);
+  margin-left: 15px;
+  height: 60px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: whitesmoke;
+  line-height: 40px;
+  margin-bottom: 10px;
+}
+.wrapper .all-adverts .single-advert .single-advert-top .single-advert-top-ul {
+  display: flex;
+  justify-content: space-between;
+}
+.wrapper
+  .all-adverts
+  .single-advert
+  .single-advert-top
+  .single-advert-top-ul
+  li
+  #advert-no,
+.wrapper
+  .all-adverts
+  .single-advert
+  .single-advert-top
+  .single-advert-top-ul
+  li
+  #advert-company {
+  outline: none;
+  text-decoration: none;
+  color: #7ba5cf;
+}
+
+#advert-no {
+  font-size: 15px;
+}
+#advert-title {
+  font-weight: 600;
+  letter-spacing: 1px;
+  font-style: italic;
+}
+#advert-company {
+  font-weight: 800;
+}
+
+.wrapper .all-adverts .single-advert .single-advert-mid #text {
+  width: calc(100% - 30px);
+  margin-left: 15px;
+  height: 80px;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: whitesmoke;
+  line-height: 40px;
+  margin-bottom: 10px;
+  outline: none;
+  resize: none;
+  border: none;
+  color: #383838;
+  font-size: 14px;
+}
+.wrapper .all-adverts .single-advert .single-advert-bottom {
+  width: 15%;
+  margin-left: 20px;
+}
+.wrapper
+  .all-adverts
+  .single-advert
+  .single-advert-bottom
+  #single-advert-bottom-button {
+  width: 100%;
+  height: 40px;
+  box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  color: #383838;
+  border: none;
+  outline: none;
+  font-size: 16px;
+}
+
+#advert-link {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  color: #383838;
+}
+#advert-link:hover,
+.wrapper
+  .all-adverts
+  .single-advert
+  .single-advert-bottom
+  #single-advert-bottom-button:hover {
+  background-color: #7ba5cf;
+  transition: 0.5s ease;
+  color: whitesmoke;
+}
+
+#setup {
+  height: 45px;
+}

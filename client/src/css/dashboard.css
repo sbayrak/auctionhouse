@@ -1,0 +1,553 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  list-style: none;
+}
+
+body {
+  background-color: #fff;
+}
+
+.wrapper {
+  width: calc(100% - 500px);
+  margin-left: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: 150px;
+}
+
+.wrapper .welcomer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(123, 165, 207, 0.5);
+  border-radius: 5px;
+  padding: 10px;
+  padding-left: 15px;
+  /* border: 1px solid black; */
+}
+.wrapper .welcomer .dashboard {
+  font-size: 46px;
+  font-weight: 600;
+  color: #7ba5cf;
+}
+.wrapper .welcomer .welcomer-group {
+  font-size: 24px;
+  padding-top: 15px;
+}
+.wrapper .welcomer .welcomer-group i {
+  font-size: 28px;
+}
+
+.wrapper .profile-information {
+  padding: 5px;
+  width: 100%;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+  /* border: 1px solid black; */
+  border: 1px solid rgba(123, 165, 207, 0.5);
+  border-radius: 5px;
+}
+
+.wrapper .profile-information #profile-information-h2 {
+  color: #7ba5cf;
+  font-size: 28px;
+  font-weight: 600;
+  padding: 10px;
+}
+
+.wrapper .profile-information .profile-information-all {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  /* border: 1px solid black; */
+}
+.wrapper
+  .profile-information
+  .profile-information-all
+  .profile-information-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* border: 1px solid black; */
+}
+
+.wrapper
+  .profile-information
+  .profile-information-all
+  .profile-information-left
+  .profile-information-left-group {
+  margin-bottom: 30px;
+  background-color: rgb(240, 240, 240);
+  padding-left: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.wrapper
+  .profile-information
+  .profile-information-all
+  .profile-information-left
+  .profile-information-left-group
+  label {
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: 500;
+}
+.wrapper
+  .profile-information
+  .profile-information-all
+  .profile-information-left
+  .profile-information-left-group
+  input {
+  font-size: 16px;
+  width: 50%;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  padding-left: 5px;
+  background-color: rgb(230, 229, 229);
+  padding-bottom: 5px;
+}
+
+.wrapper
+  .profile-information
+  .profile-information-all
+  .profile-information-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  /* border: 1px solid black; */
+}
+
+.wrapper
+  .profile-information
+  .profile-information-all
+  .profile-information-right
+  .profile-information-right-group {
+  margin-bottom: 30px;
+  background-color: rgb(240, 240, 240);
+  padding-left: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.wrapper
+  .profile-information
+  .profile-information-all
+  .profile-information-right
+  .profile-information-right-group
+  label {
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: 500;
+}
+.wrapper
+  .profile-information
+  .profile-information-all
+  .profile-information-right
+  .profile-information-right-group
+  input {
+  font-size: 16px;
+  width: 50%;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  padding-left: 5px;
+  background-color: rgb(230, 229, 229);
+  padding-bottom: 5px;
+}
+#web-input {
+  width: 55%;
+  outline: none;
+  border: none;
+  color: gray;
+  background-color: rgb(230, 229, 229);
+}
+#bio-textarea {
+  resize: none;
+  background-color: rgb(230, 229, 229);
+  outline: none;
+  border: none;
+}
+
+.wrapper
+  .profile-information
+  .profile-information-all
+  .profile-information-right
+  .profile-information-right-group
+  .social-group
+  .social {
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 10px;
+  font-size: 18px;
+}
+
+.wrapper
+  .profile-information
+  .profile-information-all
+  .profile-information-right
+  .profile-information-right-group
+  .social-group
+  .social
+  i {
+  color: #7ba5cf;
+  font-size: 20px;
+}
+.wrapper
+  .profile-information
+  .profile-information-all
+  .profile-information-right
+  .profile-information-right-group
+  .social-group
+  .social
+  input {
+  margin-left: 10px;
+  width: 80%;
+}
+.wrapper .profile-information .profile-information-bottom {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  /* border: 1px solid black; */
+}
+.wrapper
+  .profile-information
+  .profile-information-bottom
+  .profile-information-bottom-group {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 10px;
+  /* border: 1px solid black; */
+}
+
+.wrapper
+  .profile-information
+  .profile-information-bottom
+  .profile-information-bottom-group
+  button {
+  width: 20%;
+  height: 40px;
+  cursor: pointer;
+  border: 2px solid #7ba5cf;
+  border-radius: 5px;
+  font-size: 18px;
+  transition: 0.5s ease;
+}
+.wrapper
+  .profile-information
+  .profile-information-bottom
+  .profile-information-bottom-group
+  button:hover {
+  background-color: #7ba5cf;
+  color: #fff;
+}
+
+.wrapper
+  .profile-information
+  .profile-information-bottom
+  .profile-information-bottom-group
+  p {
+  float: left;
+  font-size: 13px;
+}
+.wrapper .myadverts {
+  width: 100%;
+  position: relative;
+  background-color: #7ba5cf;
+  border-radius: 5px;
+  top: 30px;
+  /* border: 1px solid black; */
+  box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(123, 165, 207, 0.5);
+}
+.wrapper .myadverts .single-advert {
+  width: calc(100% - 40px);
+  margin-left: 20px;
+  margin-bottom: 10px;
+  background-color: rgb(214, 214, 214);
+  padding: 10px;
+  box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.2);
+  position: relative;
+  top: 60px;
+}
+
+.wrapper .myadverts .single-advert .single-advert-top {
+  width: calc(100% - 30px);
+  margin-left: 15px;
+  height: 60px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: whitesmoke;
+  line-height: 40px;
+  margin-bottom: 10px;
+}
+.wrapper .myadverts .single-advert .single-advert-top .single-advert-top-ul {
+  display: flex;
+  justify-content: space-between;
+}
+.wrapper
+  .myadverts
+  .single-advert
+  .single-advert-top
+  .single-advert-top-ul
+  li
+  #advert-no,
+.wrapper
+  .myadverts
+  .single-advert
+  .single-advert-top
+  .single-advert-top-ul
+  li
+  #advert-company {
+  outline: none;
+  text-decoration: none;
+  color: #7ba5cf;
+}
+
+#advert-no {
+  font-size: 15px;
+}
+#advert-title {
+  font-weight: 600;
+  letter-spacing: 1px;
+  font-style: italic;
+}
+#advert-company {
+  font-weight: 800;
+}
+
+.wrapper .myadverts .single-advert .single-advert-mid #text {
+  width: calc(100% - 30px);
+  margin-left: 15px;
+  height: 80px;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: whitesmoke;
+  line-height: 40px;
+  margin-bottom: 10px;
+  outline: none;
+  resize: none;
+  border: none;
+  color: #383838;
+  font-size: 14px;
+}
+
+.wrapper .myadverts .single-advert .single-advert-bids {
+  display: flex;
+  width: 50%;
+  margin-left: 50px;
+  border-radius: 5px;
+  background-color: #fff;
+  flex-direction: column;
+  justify-content: space-around;
+  position: relative;
+  margin-bottom: 15px;
+  padding: 10px;
+}
+.wrapper
+  .myadverts
+  .single-advert
+  .single-advert-bids
+  #single-advert-bids-title {
+  color: #7ba5cf;
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+.wrapper .myadverts .single-advert .single-advert-bids #hide {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  outline: none;
+  border: none;
+  font-size: 20px;
+  color: #7ba5cf;
+  cursor: pointer;
+}
+.wrapper .myadverts .single-advert .single-advert-bids .single-advert-bid {
+  padding: 5px;
+  display: flex;
+  justify-content: space-evenly;
+  background-color: #e3e3e3;
+  border-radius: 5px;
+}
+.wrapper
+  .myadverts
+  .single-advert
+  .single-advert-bids
+  .single-advert-bid
+  #single-advert-bid-company {
+  color: black;
+  outline: none;
+  border: none;
+  text-decoration: underline;
+}
+.wrapper
+  .myadverts
+  .single-advert
+  .single-advert-bids
+  .single-advert-bid
+  #single-advert-bid-button {
+  background-color: rgb(0, 175, 0);
+  font-size: 14px;
+  color: #fff;
+  cursor: pointer;
+  outline: none;
+  border: 1px solid #7ba5cf;
+  padding: 3px;
+  border-radius: 5px;
+}
+.wrapper .myadverts .single-advert .single-advert-bottom {
+  width: 45%;
+  display: flex;
+  justify-content: space-evenly;
+}
+.wrapper
+  .myadverts
+  .single-advert
+  .single-advert-bottom
+  #single-advert-bottom-button {
+  width: 100%;
+  height: 40px;
+  box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  color: #383838;
+  margin-left: 20px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+}
+
+#advert-link {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  color: #383838;
+}
+#advert-link:hover,
+.wrapper
+  .myadverts
+  .single-advert
+  .single-advert-bottom
+  #single-advert-bottom-button:hover {
+  background-color: #7ba5cf;
+  transition: 0.5s ease;
+  color: whitesmoke;
+}
+
+.wrapper .myadverts .single-advert .single-advert-bottom .advert-delete-button {
+  background-color: #e35d6a;
+  color: #fff;
+}
+.wrapper
+  .myadverts
+  .single-advert
+  .single-advert-bottom
+  .advert-delete-button:hover {
+  background-color: #e35d6a;
+}
+.wrapper .myadverts .single-advert .single-advert-bottom #advert-delete-link {
+  color: #fff;
+  text-decoration: none;
+}
+.myadverts #myadverts-title {
+  color: #fff;
+  font-size: 30px;
+  font-weight: 600;
+  padding: 20px;
+  margin-bottom: 40px;
+  position: relative;
+  top: 20px;
+  left: 15px;
+}
+#setup {
+  height: 65px;
+}
+.divTable {
+  margin-top: 50px;
+  box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.1);
+  display: table;
+  background-color: #7ba5cf;
+  width: 100%;
+  padding: 20px;
+  border-radius: 5px;
+}
+.divTableRow {
+  display: table-row;
+  position: relative;
+  top: 120px;
+}
+.divTableHeading {
+  background-color: #eee;
+  display: table-header-group;
+}
+.divTableCell,
+.divTableHead {
+  border: 2px solid #fff;
+  display: table-cell;
+  padding: 3px 10px;
+}
+.divTableCell {
+  font-size: 15px;
+  color: #fff;
+}
+#no,
+#title,
+#date,
+#bid {
+  font-size: 20px;
+  font-weight: 500;
+}
+.divTableHeading {
+  background-color: #eee;
+  display: table-header-group;
+  font-weight: bold;
+}
+.divTableFoot {
+  background-color: #eee;
+  display: table-footer-group;
+  font-weight: bold;
+}
+.divTableBody {
+  display: table-row-group;
+  position: relative;
+  top: 120px;
+  padding: 20px;
+}
+.divTable #divTable-title {
+  color: #fff;
+  font-size: 30px;
+  font-weight: 600;
+  padding: 20px;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+}
+
+#delete-account {
+  position: relative;
+  left: 0;
+  background-color: #e35d6a;
+  color: #fff;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-top: 50px;
+  padding: 10px;
+  font-size: 20px;
+  float: left;
+}

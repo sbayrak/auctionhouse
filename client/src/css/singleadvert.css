@@ -1,0 +1,261 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  list-style: none;
+}
+
+body {
+  background-color: #fff;
+}
+
+.wrapper {
+  width: calc(100% - 500px);
+  margin-left: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: 150px;
+}
+
+.wrapper .single-advert {
+  width: 100%;
+}
+
+.wrapper .single-advert .single-advert-title {
+  display: flex;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  margin-bottom: 15px;
+}
+
+.wrapper .single-advert .single-advert-title .single-advert-title-left {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-right: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 15px;
+}
+
+.wrapper .single-advert .single-advert-title .single-advert-title-left img {
+  border-radius: 50%;
+  width: 100px;
+}
+
+.wrapper .single-advert .single-advert-title .single-advert-title-left span {
+  color: #7ba5cf;
+  padding-top: 10px;
+  font-weight: 600;
+}
+.wrapper .single-advert .single-advert-title .single-advert-title-left span a {
+  text-decoration: none;
+  color: #7ba5cf;
+}
+
+.wrapper .single-advert .single-advert-title .single-advert-title-right {
+  width: 70%;
+}
+
+.wrapper
+  .single-advert
+  .single-advert-title
+  .single-advert-title-right
+  textarea {
+  resize: none;
+  color: black;
+  outline: none;
+  border: none;
+  margin-top: 50px;
+  margin-left: 20px;
+  font-size: 15px;
+  font-weight: 100;
+  font-style: italic;
+  margin-right: 30px;
+  width: 90%;
+}
+
+.wrapper .single-advert .single-advert-title .single-advert-title-right span {
+  font-weight: 100;
+  float: right;
+  margin-right: 10px;
+  opacity: 0.7;
+  font-size: 13px;
+}
+
+.wrapper .single-advert .single-advert-bid {
+  width: 100%;
+  height: 40px;
+  margin-bottom: 15px;
+}
+.wrapper .single-advert .single-advert-bid input {
+  height: 30px;
+  margin-top: 5px;
+  outline: none;
+  border: 1px solid rgba(123, 165, 207, 1);
+  padding-left: 5px;
+}
+.wrapper .single-advert .single-advert-bid button {
+  height: 30px;
+  margin-top: 5px;
+  padding: 0 10px;
+  margin-left: 25px;
+  border: 1px solid rgba(123, 165, 207, 1);
+  background-color: #7ba5cf;
+  color: #fff;
+  font-weight: 600;
+  transition: 0.5s ease;
+  cursor: pointer;
+}
+
+.wrapper .single-advert .single-advert-bid button:hover {
+  background-color: #fff;
+  color: #7ba5cf;
+}
+.wrapper .single-advert .single-advert-comment {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 40px;
+}
+.wrapper .single-advert .single-advert-comment #single-advert-comment-bar {
+  height: 50px;
+  padding-top: 15px;
+  margin-bottom: 15px;
+  padding-left: 15px;
+  font-size: 18px;
+  background-color: #7ba5cf;
+  color: #fff;
+}
+
+.wrapper .single-advert .single-advert-comment #myform #text {
+  resize: none;
+  border: 1px solid rgba(123, 165, 207, 1);
+  width: 100%;
+  padding-top: 15px;
+  padding-left: 15px;
+  font-size: 14px;
+  height: 100px;
+  margin-bottom: 15px;
+}
+.wrapper .single-advert .single-advert-comment #myform button {
+  height: 50px;
+  width: 10%;
+  font-size: 16px;
+  border: 1px solid rgba(123, 165, 207, 1);
+  background-color: #7ba5cf;
+  color: #fff;
+  font-weight: 600;
+  transition: 0.5s ease;
+  cursor: pointer;
+}
+
+.wrapper .single-advert .single-advert-comment #myform button:hover {
+  background-color: #fff;
+  color: #7ba5cf;
+}
+
+.wrapper
+  .single-advert
+  .single-advert-comments
+  .single-advert-comments-comment {
+  height: 150px;
+  display: flex;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  margin-bottom: 25px;
+}
+
+.wrapper
+  .single-advert
+  .single-advert-comments
+  .single-advert-comments-comment
+  .single-advert-comments-left {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 15px;
+}
+.wrapper
+  .single-advert
+  .single-advert-comments
+  .single-advert-comments-comment
+  .single-advert-comments-left
+  img {
+  border-radius: 50%;
+  width: 100px;
+}
+
+.wrapper
+  .single-advert
+  .single-advert-comments
+  .single-advert-comments-comment
+  .single-advert-comments-left
+  span {
+  color: #7ba5cf;
+  padding-top: 10px;
+  font-weight: 600;
+}
+
+.wrapper
+  .single-advert
+  .single-advert-comments
+  .single-advert-comments-comment
+  .single-advert-comments-right {
+  width: 70%;
+  position: relative;
+}
+
+.wrapper
+  .single-advert
+  .single-advert-comments
+  .single-advert-comments-comment
+  .single-advert-comments-right
+  input {
+  resize: none;
+  color: black;
+  outline: none;
+  border: none;
+  margin-top: 50px;
+  margin-left: 20px;
+  font-size: 15px;
+  font-weight: 100;
+  margin-right: 30px;
+  width: 70%;
+}
+
+.wrapper
+  .single-advert
+  .single-advert-comments
+  .single-advert-comments-comment
+  .single-advert-comments-right
+  span {
+  font-weight: 100;
+  float: right;
+  margin-right: 10px;
+  opacity: 0.7;
+  margin-top: 65px;
+  font-size: 13px;
+  position: absolute;
+  top: 60px;
+  right: 0;
+}
+
+#delete-comment-button {
+  font-size: 26px;
+  position: relative;
+  right: -100px;
+  top: -30px;
+  width: 40px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  color: #fff;
+  background-color: red;
+}

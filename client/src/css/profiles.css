@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  list-style: none;
+}
+
+body {
+  background-color: #fff;
+}
+
+.wrapper {
+  width: calc(100% - 500px);
+  margin-left: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: 150px;
+}
+.wrapper #title {
+  width: 100%;
+  font-size: 28px;
+  color: #7ba5cf;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.wrapper .companies {
+  width: 100%;
+  background-color: #7ba5cf;
+  border-radius: 5px;
+  padding: 10px 5px;
+  box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.2);
+}
+
+.wrapper .companies .company {
+  width: calc(100% - 100px);
+  border-radius: 5px;
+  background-color: #fff;
+  margin-left: 50px;
+  margin-bottom: 10px;
+  box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.2);
+}
+.wrapper .companies .company img {
+  width: 70px;
+  margin: 10px 0;
+  position: relative;
+  left: 49%;
+  transform: translate(-50%, 0);
+  box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+}
+
+.wrapper .companies .company .company-top {
+  height: 40px;
+  border: 1px solid rgba(123, 165, 207, 0.5);
+  box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.2);
+}
+.wrapper .companies .company .company-top ul {
+  display: flex;
+  padding-top: 10px;
+  justify-content: space-evenly;
+}
+.wrapper .companies .company .company-top ul li {
+  font-size: 18px;
+}
+#company-top-type {
+  color: #7ba5cf;
+}
+
+#company-top-location {
+  font-size: 16px;
+}
+#company-top-company {
+  font-weight: bold;
+  color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+}
+#company-top-company a {
+  text-decoration: underline;
+  color: black;
+}
+
+.wrapper .companies .company .company-mid {
+  width: 100%;
+  padding: 10px;
+}
+
+.wrapper .companies .company .company-mid .company-mid-group {
+  padding: 10px 0;
+}
+
+.wrapper
+  .companies
+  .company
+  .company-mid
+  .company-mid-group
+  #company-mid-group-bio {
+  font-weight: 600;
+}
+.wrapper .companies .company .company-mid .company-mid-group textarea {
+  resize: none;
+  width: 50%;
+  font-style: italic;
+  border: none;
+}
+
+.wrapper
+  .companies
+  .company
+  .company-mid
+  .company-mid-group
+  #company-mid-website {
+  font-weight: 600;
+}
+.wrapper
+  .companies
+  .company
+  .company-mid
+  .company-mid-group
+  #company-mid-website
+  a {
+  text-decoration: none;
+  color: #7ba5cf;
+  font-weight: 500;
+}
+
+.wrapper .companies .company .company-mid .company-mid-group .socials ul {
+  display: flex;
+  justify-content: space-evenly;
+  border: 1px solid rgba(123, 165, 207, 0.5);
+  box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.2);
+}
+.wrapper .companies .company .company-mid .company-mid-group .socials ul li {
+  font-size: 20px;
+  color: #7ba5cf;
+}
+
+.wrapper .companies .company .company-mid .company-mid-group .socials ul li a {
+  font-size: 24px;
+  color: #7ba5cf;
+}
