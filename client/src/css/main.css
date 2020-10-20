@@ -15,8 +15,8 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 #wrapper {
-  position: absolute;
-  top: 0;
+  position: relative;
+  top: 150px;
   left: 0;
   right: 0;
   bottom: 0;
@@ -25,9 +25,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #eee;
-  overflow-y: scroll;
-  overflow-x: hidden;
+  background: #fff;
   padding: 0 20px;
 }
 .register-container {
@@ -37,7 +35,8 @@ body {
   max-width: 75%;
   max-height: 85%;
   background: #fff;
-  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.12), -3px -3px 8px rgba(0, 0, 0, 0.12);
+  border-radius: 15px;
+  box-shadow: 1px 1px 17px 1px rgba(0, 0, 0, 0.4);
 }
 .login {
   display: flex;
@@ -117,6 +116,7 @@ body {
   flex-direction: column;
   width: 48%;
   height: auto;
+  margin-bottom: 15px;
 }
 .fields > label {
   font-size: 18px;

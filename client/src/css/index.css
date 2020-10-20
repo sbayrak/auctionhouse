@@ -50,9 +50,11 @@ body {
 }
 
 .wrapper .welcomer .welcomer-register {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  height: 100px;
 }
 .wrapper .welcomer .welcomer-register .welcomer-register-title {
   font-size: 18px;
@@ -61,13 +63,13 @@ body {
   margin-bottom: 10px;
 }
 .wrapper .welcomer .welcomer-register .welcomer-register-links {
+  width: 100%;
+  position: relative;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   position: relative;
   text-decoration: none;
   font-size: 20px;
-  width: 45%;
-  margin: 0 auto;
   color: #e3e3e3;
   font-style: italic;
   transition: 0.5s ease;
@@ -75,9 +77,10 @@ body {
 
 .wrapper .welcomer .welcomer-register .welcomer-register-links a {
   background-color: white;
-  padding: 5px;
+  padding: 10px 15px;
   color: #4f94da;
-  border-radius: 2px;
+  border-radius: 3px;
+  margin: 0 10px;
   font-size: 18px;
 }
 .wrapper .welcomer .welcomer-register .welcomer-register-links a:hover {

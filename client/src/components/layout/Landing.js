@@ -5,6 +5,7 @@ import calendarsvg from '../../img/calendar.svg';
 import bidsvg from '../../img/bid.svg';
 import securitysvg from '../../img/security.svg';
 import conferencesvg from '../../img/conference.svg';
+import { Link } from 'react-router-dom';
 
 const Landing = () => {
   return (
@@ -20,8 +21,8 @@ const Landing = () => {
             Don't have an account or already have one ?
           </span>
           <div className='welcomer-register-links'>
-            <a href='register.html'>Sign Up</a>
-            <a href='login.html'>Sign In</a>
+            <Link to='/register'>Sign Up</Link>
+            <Link to='/login'>Sign In</Link>
           </div>
         </div>
       </div>

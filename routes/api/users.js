@@ -27,7 +27,7 @@ router.post(
     body(
       'taxname',
       'The tax office where your company is registered is required'
-    ).isLength({ min: 10 }),
+    ).isLength({ min: 3 }),
     body('location', 'Location is required').not().isEmpty(),
   ],
   async (req, res) => {

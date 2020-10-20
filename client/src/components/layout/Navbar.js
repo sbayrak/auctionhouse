@@ -1,28 +1,36 @@
 import React from 'react';
 import '../../css/style.css';
 import gravelWhite from '../../img/gravel-white.png';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   return (
     <nav>
       <input type='checkbox' id='check' />
-      <label for='check' className='checkbtn'>
+      <label htmlFor='check' className='checkbtn'>
         <i className='fas fa-bars'></i>
       </label>
       <img src={gravelWhite} alt='' />
-      <label className='logo'>AuctionHouse</label>
+      <label className='logo'>
+        <Link to='/'>AuctionHouse</Link>
+      </label>
 
       <ul className='elementler'>
         <li>
-          <a href='#' className='active'>
+          <Link to='/adverts' className='active'>
             Adverts
-          </a>
+          </Link>
         </li>
         <li>
-          <a href='#'>Profile</a>
+          <Link to='/companies' className='active'>
+            Companies
+          </Link>
         </li>
         <li>
-          <a href='#'>Logout</a>
+          <Link to='/login'>Login</Link>
+        </li>
+        <li>
+          <Link to='/register'>Register</Link>
         </li>
       </ul>
     </nav>
