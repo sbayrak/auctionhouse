@@ -19,6 +19,8 @@
   z-index: 99;
   background: var(--light-color);
   color: #333;
+  transition: 0.5s ease;
+  margin-bottom: 5px;
 }
 
 .btn-primary,
@@ -51,6 +53,7 @@
 .alert-danger {
   background: var(--danger-color);
   color: #fff;
+  transition: 0.5s ease;
 }
 
 .btn-success,

@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import '../../css/main.css';
 import agreementsvg from '../../img/agreement.svg';
 import signup_mobilesvg from '../../img/signup_mobile.svg';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { setAlert } from '../../actions/alert';
+import { register } from '../../actions/auth';
 import PropTypes from 'prop-types';
 
-const Register = ({ setAlert }) => {
+const Register = ({ setAlert, register, isAuthenticated }) => {
   const [formData, setFormData] = useState({
     company: '',
     taxnum: '',
@@ -42,9 +43,25 @@ const Register = ({ setAlert }) => {
     if (password !== password2) {
       setAlert('Passwords do not match', 'danger');
     } else {
-      console.log('success');
+      register({
+        company,
+        taxnum,
+        companyfullname,
+        taxname,
+        email,
+        type,
+        password,
+        password2,
+        website,
+        location,
+      });
     }
   };
+
+  // Redirect
+  if (isAuthenticated) {
+    return <Redirect to='/adverts'></Redirect>;
+  }
   return (
     <div id='wrapper'>
       <div className='register-container'>
@@ -70,7 +87,6 @@ const Register = ({ setAlert }) => {
               <input
                 type='text'
                 name='company'
-                required
                 placeholder=''
                 value={company}
                 onChange={(e) => onChange(e)}
@@ -82,7 +98,6 @@ const Register = ({ setAlert }) => {
               <input
                 type='text'
                 name='taxnum'
-                required
                 placeholder=''
                 value={taxnum}
                 onChange={(e) => onChange(e)}
@@ -97,7 +112,6 @@ const Register = ({ setAlert }) => {
                 onChange={(e) => onChange(e)}
                 name='companyfullname'
                 placeholder=''
-                required
                 id='companyfullname'
               />
             </div>
@@ -121,7 +135,6 @@ const Register = ({ setAlert }) => {
                 onChange={(e) => onChange(e)}
                 placeholder=''
                 id='email'
-                required
               />
             </div>
             <div className='fields'>
@@ -131,7 +144,6 @@ const Register = ({ setAlert }) => {
                 name='type'
                 placeholder=''
                 value={type}
-                required
                 onChange={(e) => onChange(e)}
                 id='type'
               />
@@ -145,7 +157,6 @@ const Register = ({ setAlert }) => {
                 onChange={(e) => onChange(e)}
                 placeholder=''
                 id='password'
-                required
               />
             </div>
             <div className='fields'>
@@ -155,7 +166,6 @@ const Register = ({ setAlert }) => {
                 name='website'
                 placeholder=''
                 value={website}
-                required
                 onChange={(e) => onChange(e)}
                 id='website'
               />
@@ -169,7 +179,6 @@ const Register = ({ setAlert }) => {
                 name='password2'
                 placeholder=''
                 id='password2'
-                required
               />
             </div>
             <div className='fields'>
@@ -178,7 +187,6 @@ const Register = ({ setAlert }) => {
                 type='text'
                 name='location'
                 placeholder=''
-                required
                 value={location}
                 onChange={(e) => onChange(e)}
                 id='location'
@@ -199,6 +207,11 @@ const Register = ({ setAlert }) => {
 
 Register.propTypes = {
   setAlert: PropTypes.func.isRequired,
+  register: PropTypes.func.isRequired,
+  isAuthenticated: PropTypes.bool,
 };
 
-export default connect(null, { setAlert })(Register);
+const mapStateToProps = (state) => ({
+  isAuthenticated: state.auth.isAuthenticated,
+});
+export default connect(mapStateToProps, { setAlert, register })(Register);

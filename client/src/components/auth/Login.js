@@ -2,9 +2,13 @@ import React, { useState } from 'react';
 import '../../css/login.css';
 import signupsvg from '../../img/signup.svg';
 import signinsvg from '../../img/signin.svg';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-const Login = () => {
+import PropTypes from 'prop-types';
+import { login } from '../../actions/auth';
+
+const Login = ({ login, isAuthenticated }) => {
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -14,6 +18,16 @@ const Login = () => {
 
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    login({ email, password });
+  };
+
+  // Redirect if logged in
+  if (isAuthenticated) {
+    return <Redirect to='/adverts'></Redirect>;
+  }
   return (
     <div id='wrapper2'>
       <div className='register-container2'>
@@ -33,7 +47,7 @@ const Login = () => {
           <h1>
             <img src={signinsvg} alt='' />
           </h1>
-          <form className='register-form2'>
+          <form className='register-form2' onSubmit={onSubmit}>
             <div className='fields2'>
               <label htmlFor='email'>E-Mail *</label>
               <input
@@ -43,7 +57,6 @@ const Login = () => {
                 value={email}
                 onChange={onChange}
                 id='email'
-                required
               />
             </div>
 
@@ -58,7 +71,6 @@ const Login = () => {
                 id='password'
                 maxLength='20'
                 minLength='6'
-                required
               />
             </div>
 
@@ -75,4 +87,13 @@ const Login = () => {
   );
 };
 
-export default Login;
+Login.propTypes = {
+  login: PropTypes.func.isRequired,
+  isAuthenticated: PropTypes.bool,
+};
+
+const mapStateToProps = (state) => ({
+  isAuthenticated: state.auth.isAuthenticated,
+});
+
+export default connect(mapStateToProps, { login })(Login);

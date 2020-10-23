@@ -1,9 +1,50 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import '../../css/style.css';
 import gravelWhite from '../../img/gravel-white.png';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { logout } from '../../actions/auth';
 
-const Navbar = () => {
+const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
+  const authLinks = (
+    <ul className='elementler'>
+      <li>
+        <Link to='/adverts' className='active'>
+          Adverts
+        </Link>
+      </li>
+      <li>
+        <Link to='/companies' className='active'>
+          Companies
+        </Link>
+      </li>
+      <li>
+        <Link to='/profile'>Profile</Link>
+      </li>
+      <li>
+        <a href='#!' onClick={logout}>
+          <i className='fas fa-sign-out-alt'></i> Logout
+        </a>
+      </li>
+    </ul>
+  );
+  const guestLinks = (
+    <ul className='elementler'>
+      <li>
+        <Link to='/companies' className='active'>
+          Companies
+        </Link>
+      </li>
+      <li>
+        <Link to='/login'>Login</Link>
+      </li>
+      <li>
+        <Link to='/register'>Register</Link>
+      </li>
+    </ul>
+  );
+
   return (
     <nav>
       <input type='checkbox' id='check' />
@@ -15,26 +56,20 @@ const Navbar = () => {
         <Link to='/'>AuctionHouse</Link>
       </label>
 
-      <ul className='elementler'>
-        <li>
-          <Link to='/adverts' className='active'>
-            Adverts
-          </Link>
-        </li>
-        <li>
-          <Link to='/companies' className='active'>
-            Companies
-          </Link>
-        </li>
-        <li>
-          <Link to='/login'>Login</Link>
-        </li>
-        <li>
-          <Link to='/register'>Register</Link>
-        </li>
-      </ul>
+      {!loading && (
+        <Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>
+      )}
     </nav>
   );
 };
 
-export default Navbar;
+Navbar.propTypes = {
+  logout: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+  auth: state.auth,
+});
+
+export default connect(mapStateToProps, { logout })(Navbar);
