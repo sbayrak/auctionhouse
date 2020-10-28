@@ -32,6 +32,7 @@ router.post(
     [
       body('title', 'Please enter a valid title').not().isEmpty(),
       body('text', 'Please enter a valid text').not().isEmpty(),
+      body('location', 'Please enter a valid text').not().isEmpty(),
     ],
   ],
   async (req, res) => {
@@ -40,18 +41,18 @@ router.post(
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const { title, text } = req.body;
+    const { title, text, location } = req.body;
     let advertFields = {};
     advertFields.user = req.user.id;
     advertFields.title = title;
     advertFields.text = text;
     advertFields.status = false;
     advertFields.accepted = {};
+    advertFields.location = location;
 
     try {
       let user = await User.findById(req.user.id).select('-password');
       advertFields.company = user.company;
-      advertFields.location = user.location;
 
       let advert = new Advert(advertFields);
       await advert.save();
