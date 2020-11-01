@@ -5,9 +5,15 @@ import calendarsvg from '../../img/calendar.svg';
 import bidsvg from '../../img/bid.svg';
 import securitysvg from '../../img/security.svg';
 import conferencesvg from '../../img/conference.svg';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
-const Landing = () => {
+const Landing = ({ isAuthenticated }) => {
+  if (isAuthenticated) {
+    return <Redirect to='/adverts'></Redirect>;
+  }
+
   return (
     <div className='wrapper'>
       <div className='welcomer'>
@@ -128,4 +134,12 @@ const Landing = () => {
   );
 };
 
-export default Landing;
+Landing.propTypes = {
+  isAuthenticated: PropTypes.bool,
+};
+
+const mapStateToProps = (state) => ({
+  isAuthenticated: state.auth.isAuthenticated,
+});
+
+export default connect(mapStateToProps)(Landing);

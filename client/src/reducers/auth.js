@@ -3,6 +3,7 @@ import {
   REGISTER_FAIL,
   AUTH_ERROR,
   LOGIN_FAIL,
+  CLEAR_PROFILE,
   LOGIN_SUCCESS,
   LOGOUT,
   USER_LOADED,
@@ -47,7 +48,12 @@ export default function (state = initialState, action) {
         loading: false,
         user: null,
       };
-
+    case CLEAR_PROFILE:
+      return {
+        ...state,
+        profile: null,
+        loading: false,
+      };
     default:
       return state;
   }

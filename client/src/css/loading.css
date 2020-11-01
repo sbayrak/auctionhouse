@@ -1,10 +1,9 @@
-body {
-  margin: 0;
-  padding: 0;
+.wrapperLoading {
+  height: 100vh;
 }
-
 .ring {
-  position: absolute;
+  position: relative;
+
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -23,6 +22,7 @@ body {
   text-transform: uppercase;
   text-shadow: 0 0 10px #7ba5cf;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  z-index: 23;
 }
 .ring img {
   color: #fff;
@@ -32,8 +32,8 @@ body {
 .ring:before {
   content: '';
   position: absolute;
-  top: -3;
-  left: -3;
+  top: -3px;
+  left: -3px;
   width: 100%;
   height: 100%;
   border: 3px solid transparent;
@@ -44,7 +44,7 @@ body {
   animation: animateCircle 2s linear infinite;
 }
 
-span {
+.loadingSpan {
   display: block;
   position: absolute;
   top: calc(50% - 2px);
@@ -55,7 +55,7 @@ span {
   transform-origin: left;
   animation: animate 2s linear infinite;
 }
-span:before {
+.loadingSpan:before {
   content: '';
   position: absolute;
   width: 16px;
