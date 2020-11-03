@@ -37,7 +37,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-// @route   GET /api/profile/:userId
+// @route   GET /api/profile/user/:userId
 // @desc    Get profile by userId
 // @access  Public
 router.get('/user/:userId', async (req, res) => {
