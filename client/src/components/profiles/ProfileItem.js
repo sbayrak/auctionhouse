@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
@@ -13,7 +13,7 @@ const ProfileItem = ({ profile }) => {
           </li>
           <li>
             <span id='company-top-company'>
-              <a href='#!'>{profile.company}</a>
+              <Link to='#!'>{profile.company}</Link>
             </span>
           </li>
           <li>
@@ -30,42 +30,44 @@ const ProfileItem = ({ profile }) => {
         </div>
         <div className='company-mid-group'>
           <span id='company-mid-website'>
-            Website : <a href='#!'>{profile.website}</a>
+            Website :{' '}
+            <a href={profile.website} target='_blank'>
+              {profile.website}
+            </a>
           </span>
         </div>
         <div className='company-mid-group'>
-          {/* {
-            profile.social !==  null ? 
-        } */}
-          <div className='socials'>
-            <ul>
-              <li>
-                <a href='#!'>
-                  <i className='fab fa-twitter'></i>
-                </a>
-              </li>
-              <li>
-                <a href='#!'>
-                  <i className='fab fa-facebook'></i>
-                </a>
-              </li>
-              <li>
-                <a href='#!'>
-                  <i className='fab fa-youtube'></i>
-                </a>
-              </li>
-              <li>
-                <a href='#!'>
-                  <i className='fab fa-instagram'></i>
-                </a>
-              </li>
-              <li>
-                <a href='#!'>
-                  <i className='fab fa-linkedin'></i>
-                </a>
-              </li>
-            </ul>
-          </div>
+          {profile.social && (
+            <div className='socials'>
+              <ul>
+                <li>
+                  <a href={profile.social.twitter} target='_blank'>
+                    <i className='fab fa-twitter'></i>
+                  </a>
+                </li>
+                <li>
+                  <a href={profile.social.facebook} target='_blank'>
+                    <i className='fab fa-facebook'></i>
+                  </a>
+                </li>
+                <li>
+                  <a href={profile.social.youtube} target='_blank'>
+                    <i className='fab fa-youtube'></i>
+                  </a>
+                </li>
+                <li>
+                  <a href={profile.social.instagram} target='_blank'>
+                    <i className='fab fa-instagram'></i>
+                  </a>
+                </li>
+                <li>
+                  <a href={profile.social.linkedin} target='_blank'>
+                    <i className='fab fa-linkedin'></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          )}
         </div>
       </div>
     </div>
