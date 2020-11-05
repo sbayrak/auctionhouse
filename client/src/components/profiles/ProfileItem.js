@@ -31,7 +31,7 @@ const ProfileItem = ({ profile }) => {
         <div className='company-mid-group'>
           <span id='company-mid-website'>
             Website :{' '}
-            <a href={profile.website} target='_blank'>
+            <a href={profile.website} target='_blank' rel='noopener noreferrer'>
               {profile.website}
             </a>
           </span>
@@ -41,27 +41,47 @@ const ProfileItem = ({ profile }) => {
             <div className='socials'>
               <ul>
                 <li>
-                  <a href={profile.social.twitter} target='_blank'>
+                  <a
+                    href={profile.social.twitter}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                  >
                     <i className='fab fa-twitter'></i>
                   </a>
                 </li>
                 <li>
-                  <a href={profile.social.facebook} target='_blank'>
+                  <a
+                    href={profile.social.facebook}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                  >
                     <i className='fab fa-facebook'></i>
                   </a>
                 </li>
                 <li>
-                  <a href={profile.social.youtube} target='_blank'>
+                  <a
+                    href={profile.social.youtube}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                  >
                     <i className='fab fa-youtube'></i>
                   </a>
                 </li>
                 <li>
-                  <a href={profile.social.instagram} target='_blank'>
+                  <a
+                    href={profile.social.instagram}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                  >
                     <i className='fab fa-instagram'></i>
                   </a>
                 </li>
                 <li>
-                  <a href={profile.social.linkedin} target='_blank'>
+                  <a
+                    href={profile.social.linkedin}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                  >
                     <i className='fab fa-linkedin'></i>
                   </a>
                 </li>
