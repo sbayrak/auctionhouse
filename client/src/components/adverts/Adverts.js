@@ -26,7 +26,8 @@ const Adverts = ({ getAdverts, advert: { adverts, loading } }) => {
                   <AdvertItem key={advert._id} advert={advert}></AdvertItem>
                 ))
               ) : (
-                <h5>No advert found...</h5>
+                // <h5>No advert found...</h5>
+                <Spinner></Spinner>
               )}
 
               <div id='setup'></div>
