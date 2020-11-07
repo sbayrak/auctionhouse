@@ -11,7 +11,7 @@
 body {
   background-color: #e3e3e3;
 }
-.wrapper {
+.wrapper5 {
   width: calc(100% - 500px);
   margin-left: 250px;
   display: flex;
@@ -20,16 +20,17 @@ body {
   align-items: center;
   position: relative;
   top: 150px;
+  margin-bottom: 220px;
   /* border: 1px solid black; */
 }
-.wrapper #title {
+.wrapper5 #title {
   width: 100%;
   font-size: 28px;
   color: #7ba5cf;
   font-weight: 500;
   margin-bottom: 20px;
 }
-.wrapper .all-adverts {
+.wrapper5 .all-adverts {
   width: 100%;
   position: relative;
   background-color: #7ba5cf;
@@ -39,18 +40,18 @@ body {
   box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.2);
 }
 
-.wrapper .all-adverts .single-advert {
+.wrapper5 .all-adverts .single-advert {
   width: calc(100% - 40px);
   margin-left: 20px;
   border-radius: 5px;
-  margin-bottom: 10px;
+  margin-bottom: 40px;
   background-color: rgb(214, 214, 214);
   padding: 10px;
   box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.2);
   position: relative;
   top: 20px;
 }
-.wrapper .all-adverts .single-advert .single-advert-top {
+.wrapper5 .all-adverts .single-advert .single-advert-top {
   width: calc(100% - 30px);
   margin-left: 15px;
   height: 60px;
@@ -60,18 +61,18 @@ body {
   line-height: 40px;
   margin-bottom: 10px;
 }
-.wrapper .all-adverts .single-advert .single-advert-top .single-advert-top-ul {
+.wrapper5 .all-adverts .single-advert .single-advert-top .single-advert-top-ul {
   display: flex;
   justify-content: space-between;
 }
-.wrapper
+.wrapper5
   .all-adverts
   .single-advert
   .single-advert-top
   .single-advert-top-ul
   li
   #advert-no,
-.wrapper
+.wrapper5
   .all-adverts
   .single-advert
   .single-advert-top
@@ -95,7 +96,7 @@ body {
   font-weight: 800;
 }
 
-.wrapper .all-adverts .single-advert .single-advert-mid #text {
+.wrapper5 .all-adverts .single-advert .single-advert-mid #text {
   width: calc(100% - 30px);
   margin-left: 15px;
   height: 80px;
@@ -110,11 +111,11 @@ body {
   color: #383838;
   font-size: 14px;
 }
-.wrapper .all-adverts .single-advert .single-advert-bottom {
+.wrapper5 .all-adverts .single-advert .single-advert-bottom {
   width: 15%;
   margin-left: 20px;
 }
-.wrapper
+.wrapper5
   .all-adverts
   .single-advert
   .single-advert-bottom
@@ -137,7 +138,7 @@ body {
   color: #383838;
 }
 #advert-link:hover,
-.wrapper
+.wrapper5
   .all-adverts
   .single-advert
   .single-advert-bottom

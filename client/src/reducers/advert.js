@@ -11,9 +11,9 @@ import {
 
 const initialState = {
   advert: {},
-  adverts: {},
+  adverts: null,
   comments: [],
-  error: {},
+  error: null,
   loading: true,
 };
 
@@ -25,6 +25,25 @@ export default function (state = initialState, action) {
       return {
         ...state,
         adverts: payload,
+        loading: false,
+      };
+    case GET_ADVERT:
+      return {
+        ...state,
+        advert: payload,
+        loading: false,
+      };
+    case CLEAR_ADVERT:
+      return {
+        ...state,
+        advert: null,
+        adverts: null,
+        error: null,
+      };
+    case ADVERT_ERROR:
+      return {
+        ...state,
+        error: payload,
         loading: false,
       };
     default:

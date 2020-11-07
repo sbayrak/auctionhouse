@@ -30,3 +30,19 @@ export const getAdverts = () => async (dispatch) => {
     });
   }
 };
+
+// GET ADVERT BY ID
+export const getAdvertById = (advertId) => async (dispatch) => {
+  try {
+    const res = await axios.get(`/api/adverts/advert/${advertId}`);
+    dispatch({
+      type: GET_ADVERT,
+      payload: res.data,
+    });
+  } catch (err) {
+    dispatch({
+      type: ADVERT_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status },
+    });
+  }
+};

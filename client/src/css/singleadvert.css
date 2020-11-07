@@ -11,7 +11,7 @@ body {
   background-color: #fff;
 }
 
-.wrapper {
+.wrapper6 {
   width: calc(100% - 500px);
   margin-left: 250px;
   display: flex;
@@ -22,17 +22,17 @@ body {
   top: 150px;
 }
 
-.wrapper .single-advert {
+.wrapper6 .single-advert {
   width: 100%;
 }
 
-.wrapper .single-advert .single-advert-title {
+.wrapper6 .single-advert .single-advert-title {
   display: flex;
   border: 1px solid rgba(0, 0, 0, 0.2);
   margin-bottom: 15px;
 }
 
-.wrapper .single-advert .single-advert-title .single-advert-title-left {
+.wrapper6 .single-advert .single-advert-title .single-advert-title-left {
   width: 30%;
   display: flex;
   flex-direction: column;
@@ -42,26 +42,26 @@ body {
   padding: 15px;
 }
 
-.wrapper .single-advert .single-advert-title .single-advert-title-left img {
+.wrapper6 .single-advert .single-advert-title .single-advert-title-left img {
   border-radius: 50%;
   width: 100px;
 }
 
-.wrapper .single-advert .single-advert-title .single-advert-title-left span {
+.wrapper6 .single-advert .single-advert-title .single-advert-title-left span {
   color: #7ba5cf;
   padding-top: 10px;
   font-weight: 600;
 }
-.wrapper .single-advert .single-advert-title .single-advert-title-left span a {
+.wrapper6 .single-advert .single-advert-title .single-advert-title-left span a {
   text-decoration: none;
   color: #7ba5cf;
 }
 
-.wrapper .single-advert .single-advert-title .single-advert-title-right {
+.wrapper6 .single-advert .single-advert-title .single-advert-title-right {
   width: 70%;
 }
 
-.wrapper
+.wrapper6
   .single-advert
   .single-advert-title
   .single-advert-title-right
@@ -71,6 +71,7 @@ body {
   outline: none;
   border: none;
   margin-top: 50px;
+  padding: 10px;
   margin-left: 20px;
   font-size: 15px;
   font-weight: 100;
@@ -79,7 +80,7 @@ body {
   width: 90%;
 }
 
-.wrapper .single-advert .single-advert-title .single-advert-title-right span {
+.wrapper6 .single-advert .single-advert-title .single-advert-title-right span {
   font-weight: 100;
   float: right;
   margin-right: 10px;
@@ -87,19 +88,19 @@ body {
   font-size: 13px;
 }
 
-.wrapper .single-advert .single-advert-bid {
+.wrapper6 .single-advert .single-advert-bid {
   width: 100%;
   height: 40px;
   margin-bottom: 15px;
 }
-.wrapper .single-advert .single-advert-bid input {
+.wrapper6 .single-advert .single-advert-bid input {
   height: 30px;
   margin-top: 5px;
   outline: none;
   border: 1px solid rgba(123, 165, 207, 1);
   padding-left: 5px;
 }
-.wrapper .single-advert .single-advert-bid button {
+.wrapper6 .single-advert .single-advert-bid button {
   height: 30px;
   margin-top: 5px;
   padding: 0 10px;
@@ -112,16 +113,16 @@ body {
   cursor: pointer;
 }
 
-.wrapper .single-advert .single-advert-bid button:hover {
+.wrapper6 .single-advert .single-advert-bid button:hover {
   background-color: #fff;
   color: #7ba5cf;
 }
-.wrapper .single-advert .single-advert-comment {
+.wrapper6 .single-advert .single-advert-comment {
   display: flex;
   flex-direction: column;
   margin-bottom: 40px;
 }
-.wrapper .single-advert .single-advert-comment #single-advert-comment-bar {
+.wrapper6 .single-advert .single-advert-comment #single-advert-comment-bar {
   height: 50px;
   padding-top: 15px;
   margin-bottom: 15px;
@@ -131,7 +132,7 @@ body {
   color: #fff;
 }
 
-.wrapper .single-advert .single-advert-comment #myform #text {
+.wrapper6 .single-advert .single-advert-comment #myform #text {
   resize: none;
   border: 1px solid rgba(123, 165, 207, 1);
   width: 100%;
@@ -141,7 +142,7 @@ body {
   height: 100px;
   margin-bottom: 15px;
 }
-.wrapper .single-advert .single-advert-comment #myform button {
+.wrapper6 .single-advert .single-advert-comment #myform button {
   height: 50px;
   width: 10%;
   font-size: 16px;
@@ -153,12 +154,12 @@ body {
   cursor: pointer;
 }
 
-.wrapper .single-advert .single-advert-comment #myform button:hover {
+.wrapper6 .single-advert .single-advert-comment #myform button:hover {
   background-color: #fff;
   color: #7ba5cf;
 }
 
-.wrapper
+.wrapper6
   .single-advert
   .single-advert-comments
   .single-advert-comments-comment {
@@ -168,7 +169,7 @@ body {
   margin-bottom: 25px;
 }
 
-.wrapper
+.wrapper6
   .single-advert
   .single-advert-comments
   .single-advert-comments-comment
@@ -181,7 +182,7 @@ body {
 
   padding: 15px;
 }
-.wrapper
+.wrapper6
   .single-advert
   .single-advert-comments
   .single-advert-comments-comment
@@ -191,7 +192,7 @@ body {
   width: 100px;
 }
 
-.wrapper
+.wrapper6
   .single-advert
   .single-advert-comments
   .single-advert-comments-comment
@@ -202,7 +203,7 @@ body {
   font-weight: 600;
 }
 
-.wrapper
+.wrapper6
   .single-advert
   .single-advert-comments
   .single-advert-comments-comment
@@ -211,7 +212,7 @@ body {
   position: relative;
 }
 
-.wrapper
+.wrapper6
   .single-advert
   .single-advert-comments
   .single-advert-comments-comment
@@ -229,7 +230,7 @@ body {
   width: 70%;
 }
 
-.wrapper
+.wrapper6
   .single-advert
   .single-advert-comments
   .single-advert-comments-comment
