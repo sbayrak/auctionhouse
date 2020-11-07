@@ -13,7 +13,7 @@ const Adverts = ({ getAdverts, advert: { adverts, loading } }) => {
 
   return (
     <Fragment>
-      {loading ? (
+      {loading && adverts !== null ? (
         <Spinner></Spinner>
       ) : (
         <Fragment>
@@ -21,7 +21,7 @@ const Adverts = ({ getAdverts, advert: { adverts, loading } }) => {
             <span id='title'>List of all adverts</span>
 
             <div className='all-adverts'>
-              {adverts.length > 0 ? (
+              {adverts !== null ? (
                 adverts.map((advert) => (
                   <AdvertItem key={advert._id} advert={advert}></AdvertItem>
                 ))
