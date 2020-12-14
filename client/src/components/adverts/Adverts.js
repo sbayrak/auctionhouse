@@ -26,7 +26,7 @@ const Adverts = ({ getAdverts, advert: { adverts, loading } }) => {
                   <AdvertItem key={advert._id} advert={advert}></AdvertItem>
                 ))
               ) : (
-                // <h5>No advert found...</h5>
+                // Spinner component
                 <Spinner></Spinner>
               )}
 
