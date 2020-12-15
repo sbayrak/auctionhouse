@@ -10,10 +10,10 @@ const SingleAdvert = ({
   getAdvertById,
 }) => {
   useEffect(() => {
-    getAdvertById(match.params.id);
-  }, [getAdvertById, match.params.id]);
+    getAdvertById(match.params.advertId);
+  }, [getAdvertById, match.params.advertId]);
 
-  return <h1>hi</h1>;
+  return <h1> hi</h1>;
 };
 
 SingleAdvert.propTypes = {
@@ -22,7 +22,7 @@ SingleAdvert.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  advert: state.advert,
+  advert: state.advert.advert,
 });
 
 export default connect(mapStateToProps, { getAdvertById })(SingleAdvert);
