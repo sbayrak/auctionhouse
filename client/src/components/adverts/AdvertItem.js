@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import '../../css/adverts2.css';
+// import { Link } from 'react-router-dom';
 
 const AdvertItem = ({ advert }) => {
   return (
@@ -8,7 +9,7 @@ const AdvertItem = ({ advert }) => {
       <div className='single-advert-top'>
         <ul className='single-advert-top-ul'>
           <li>
-            <a id='advert-no'>{advert._id}</a>
+            <a id='advert-no' href={advert._id}>{advert._id}</a>
           </li>
           <li>
             <span id='advert-title'>{advert.title}</span>
@@ -21,9 +22,7 @@ const AdvertItem = ({ advert }) => {
         </ul>
       </div>
       <div className='single-advert-mid'>
-        <textarea name='text' id='text' cols='30' rows='10' disabled>
-          {advert.text}
-        </textarea>
+        <textarea name='text' id='text' cols='30' rows='10' disabled value={advert.text}></textarea>
       </div>
       <div className='single-advert-bottom'>
         <button type='button' id='single-advert-bottom-button'>
