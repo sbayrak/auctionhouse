@@ -40,6 +40,13 @@ export default function (state = initialState, action) {
         adverts: null,
         error: null,
       };
+
+    case ADD_BID:
+      return {
+        ...state,
+        advert: { ...state.advert, bids: payload },
+        loading: false,
+      };
     case ADVERT_ERROR:
       return {
         ...state,

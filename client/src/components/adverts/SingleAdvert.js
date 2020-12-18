@@ -7,6 +7,7 @@ import Moment from 'react-moment';
 import { Link } from 'react-router-dom';
 import { getAdvertById } from '../../actions/advert';
 import SingleAdvertComment from './SingleAdvertComment';
+import SingleAdvertBidForm from './SingleAdvertBidForm';
 
 const SingleAdvert = ({
   match,
@@ -59,17 +60,22 @@ const SingleAdvert = ({
                   </div>
                 </div>
 
-                <div className='single-advert-bid'>
-                  <input
-                    type='text'
-                    name='bid'
-                    id='bid'
-                    placeholder='Place your bid here...'
-                  />
-                  <button type='button' id='bid-button'>
-                    Submit
-                  </button>
-                </div>
+                {/* <form>
+                  <div className='single-advert-bid'>
+                    <input
+                      type='text'
+                      name='bid'
+                      id='bid'
+                      placeholder='Place your bid here...'
+                    />
+                    <button type='button' id='bid-button'>
+                      Submit
+                    </button>
+                  </div>
+                </form> */}
+                <SingleAdvertBidForm
+                  advertId={advert._id}
+                ></SingleAdvertBidForm>
 
                 <div className='single-advert-comment'>
                   <span id='single-advert-comment-bar'>Leave a comment</span>

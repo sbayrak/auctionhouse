@@ -46,3 +46,26 @@ export const getAdvertById = (advertId) => async (dispatch) => {
     });
   }
 };
+
+// PLACE A BID (SingleAdvert.js)
+export const placeBid = (advertId, bid) => async (dispatch) => {
+  const config = {
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  };
+
+  try {
+    const res = await axios.put(`/api/adverts/advert/${advertId}`, bid, config);
+
+    dispatch({
+      type: ADD_BID,
+      payload: res.data,
+    });
+  } catch (err) {
+    dispatch({
+      type: ADVERT_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status },
+    });
+  }
+};
