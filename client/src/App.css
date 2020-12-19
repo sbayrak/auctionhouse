@@ -8,15 +8,18 @@
 }
 
 .alert {
-  position: relative;
+  position: absolute;
   top: 120px;
   width: calc(100% - 800px);
   margin-left: 400px;
   letter-spacing: 1px;
   text-align: center;
+  border-radius: 5px;
   visibility: 1;
-  opacity: 1;
-  z-index: 99;
+  height: 70px;
+  padding-top: 25px;
+  opacity: 0.6;
+  z-index: 2299;
   background: var(--light-color);
   color: #333;
   transition: 0.5s ease;
@@ -53,7 +56,7 @@
 .alert-danger {
   background: var(--danger-color);
   color: #fff;
-  transition: 0.5s ease;
+  transition: 5s ease;
 }
 
 .btn-success,
@@ -62,6 +65,7 @@
 .alert-success {
   background: var(--success-color);
   color: #fff;
+  transition: 5s ease;
 }
 
 .btn-white,
