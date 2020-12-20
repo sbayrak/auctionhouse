@@ -221,11 +221,11 @@ router.put(
   }
 );
 
-// @route   POST /api/adverts/comment/:id
+// @route   POST /api/adverts/comment/:advertId
 // @desc    Comment on an advert
 // @access  Private
 router.post(
-  '/comment/:id',
+  '/comment/:advertId',
   [auth, [body('text', 'Please enter a text').not().isEmpty()]],
   async (req, res) => {
     const errors = validationResult(req);
@@ -234,7 +234,7 @@ router.post(
     }
 
     try {
-      let advert = await Advert.findById(req.params.id);
+      let advert = await Advert.findById(req.params.advertId);
       let user = await User.findById(req.user.id);
       let newComment = {};
       newComment.user = user.id;

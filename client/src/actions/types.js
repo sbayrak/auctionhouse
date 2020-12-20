@@ -20,3 +20,6 @@ export const ADD_BID = 'ADD_BID';
 export const DELETE_ADVERT = 'DELETE_ADVERT';
 export const ADVERT_ERROR = 'ADVERT_ERROR';
 export const CLEAR_ADVERT = 'CLEAR_ADVERT';
+
+export const ADD_COMMENT = 'ADD_COMMENT';
+export const DELETE_COMMENT = 'DELETE_COMMENT';
