@@ -18,6 +18,7 @@ import { Provider } from 'react-redux';
 import store from './store';
 import Adverts from './components/adverts/Adverts';
 import SingleAdvert from './components/adverts/SingleAdvert';
+import CreateAdvert from './components/adverts/CreateAdvert';
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);
@@ -56,6 +57,11 @@ const App = () => {
               exact
               path='/adverts/advert/:advertId'
               component={SingleAdvert}
+            ></PrivateRoute>
+            <PrivateRoute
+              exact
+              path='/create-advert'
+              component={CreateAdvert}
             ></PrivateRoute>
           </Switch>
           <Footer></Footer>
