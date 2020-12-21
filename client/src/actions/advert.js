@@ -113,3 +113,29 @@ export const deleteComment = (advertId, commentId) => async (dispatch) => {
     });
   }
 };
+
+export const addAdvert = ({ title, text, location }) => async (dispatch) => {
+  const config = {
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  };
+  const body = JSON.stringify({
+    title: title,
+    text: text,
+    location: location,
+  });
+
+  try {
+    const res = await axios.post(`/api/adverts/create`, body, config);
+    dispatch({
+      type: CREATE_ADVERT,
+      payload: res.data,
+    });
+  } catch (err) {
+    dispatch({
+      type: ADVERT_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status },
+    });
+  }
+};

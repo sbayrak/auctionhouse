@@ -66,6 +66,19 @@ export default function (state = initialState, action) {
         },
         loading: false,
       };
+
+    case CREATE_ADVERT:
+      return {
+        ...state,
+        adverts: [payload, ...state.adverts],
+        loading: false,
+      };
+    case DELETE_ADVERT:
+      return {
+        ...state,
+        adverts: state.adverts.filter((advert) => advert._id !== payload),
+        loading: false,
+      };
     case ADVERT_ERROR:
       return {
         ...state,
