@@ -16,18 +16,21 @@ const CreateAdvert = ({ addAdvert, setAlert }) => {
       setAlert('Please fill necessary fields', 'danger');
     } else if (title.length < 5 || title.length > 80) {
       setAlert(
-        `Please enter a title letter number of between 5 and 80, you have entered letter number of ${title.length} `,
-        'alert'
+        `Please enter a title, letter number of between 5 and 80, you have entered letter number of ${title.length} `,
+        'danger',
+        '6000'
       );
     } else if (text.length < 5 || text.length > 180) {
       setAlert(
-        `Please enter a text letter number of between 5 and 80, you have entered letter number of ${text.length} `,
-        'alert'
+        `Please enter a text, letter number of between 5 and 80, you have entered letter number of ${text.length} `,
+        'danger',
+        '6000'
       );
     } else if (location.length < 5 || location.length > 80) {
       setAlert(
-        `Please enter a location letter number of between 5 and 80, you have entered letter number of ${location.length} `,
-        'alert'
+        `Please enter a location, letter number of between 5 and 80, you have entered letter number of ${location.length} `,
+        'danger',
+        '6000'
       );
     } else {
       addAdvert({ title: title, text: text, location: location });
@@ -52,7 +55,6 @@ const CreateAdvert = ({ addAdvert, setAlert }) => {
             </label>
             <input
               type='text'
-              required
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               placeholder="Please enter advert's title"
@@ -77,7 +79,6 @@ const CreateAdvert = ({ addAdvert, setAlert }) => {
             </label>
             <input
               type='text'
-              required
               value={location}
               onChange={(e) => setLocation(e.target.value)}
               placeholder='Please enter location'
