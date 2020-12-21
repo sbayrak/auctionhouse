@@ -90,6 +90,7 @@ const SingleAdvert = ({
                       <SingleAdvertComment
                         comment={comment}
                         key={comment._id}
+                        advertId={advert._id}
                       ></SingleAdvertComment>
                     ))}
                   </Fragment>
