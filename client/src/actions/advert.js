@@ -7,6 +7,8 @@ import {
   ADVERT_ERROR,
   ADD_BID,
   CLEAR_ADVERT,
+  ADD_COMMENT,
+  DELETE_COMMENT,
 } from '../actions/types';
 import axios from 'axios';
 import { setAlert } from './alert';
@@ -62,6 +64,49 @@ export const placeBid = (advertId, bid) => async (dispatch) => {
       type: ADD_BID,
       payload: res.data,
     });
+  } catch (err) {
+    dispatch({
+      type: ADVERT_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status },
+    });
+  }
+};
+
+export const addComment = (advertId, text) => async (dispatch) => {
+  const config = {
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  };
+  try {
+    const res = await axios.post(
+      `/api/adverts/comment/${advertId}`,
+      text,
+      config
+    );
+    dispatch({
+      type: ADD_COMMENT,
+      payload: res.data,
+    });
+  } catch (err) {
+    dispatch({
+      type: ADVERT_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status },
+    });
+  }
+};
+// DELETE COMMENT
+export const deleteComment = (advertId, commentId) => async (dispatch) => {
+  try {
+    const res = await axios.delete(
+      `/api/posts/comment/${advertId}/${commentId}`
+    );
+
+    dispatch({
+      type: DELETE_COMMENT,
+      payload: commentId,
+    });
+    dispatch(setAlert('Comment Removed', 'success'));
   } catch (err) {
     dispatch({
       type: ADVERT_ERROR,

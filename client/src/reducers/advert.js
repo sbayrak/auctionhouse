@@ -7,6 +7,8 @@ import {
   ADVERT_ERROR,
   CLEAR_ADVERT,
   ADD_BID,
+  ADD_COMMENT,
+  DELETE_COMMENT,
 } from '../actions/types';
 
 const initialState = {
@@ -45,6 +47,23 @@ export default function (state = initialState, action) {
       return {
         ...state,
         advert: { ...state.advert, bids: payload },
+        loading: false,
+      };
+    case ADD_COMMENT:
+      return {
+        ...state,
+        advert: { ...state.advert, comments: payload },
+        loading: false,
+      };
+    case DELETE_COMMENT:
+      return {
+        ...state,
+        advert: {
+          ...state.advert,
+          comments: state.advert.comments.filter(
+            (comment) => comment._id !== payload
+          ),
+        },
         loading: false,
       };
     case ADVERT_ERROR:

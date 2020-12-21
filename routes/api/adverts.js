@@ -242,7 +242,7 @@ router.post(
       newComment.company = user.company;
       newComment.avatar = user.avatar;
 
-      advert.comments.unshift(newComment);
+      advert.comments.push(newComment);
       await advert.save();
 
       res.json(advert.comments);

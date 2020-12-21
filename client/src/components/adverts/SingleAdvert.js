@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import { getAdvertById } from '../../actions/advert';
 import SingleAdvertComment from './SingleAdvertComment';
 import SingleAdvertBidForm from './SingleAdvertBidForm';
+import SingleAdvertCommentForm from './SingleAdvertCommentForm';
 
 const SingleAdvert = ({
   match,
@@ -78,19 +79,9 @@ const SingleAdvert = ({
                 ></SingleAdvertBidForm>
 
                 <div className='single-advert-comment'>
-                  <span id='single-advert-comment-bar'>Leave a comment</span>
-                  <form id='myform'>
-                    <textarea
-                      name='text'
-                      id='text'
-                      cols='30'
-                      rows='10'
-                      placeholder='Commen on this advert...'
-                    ></textarea>
-                    <button type='button' id='comment-button'>
-                      Submit
-                    </button>
-                  </form>
+                  <SingleAdvertCommentForm
+                    advertId={advert._id}
+                  ></SingleAdvertCommentForm>
                 </div>
 
                 <div className='single-advert-comments'>
