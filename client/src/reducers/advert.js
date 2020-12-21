@@ -70,7 +70,7 @@ export default function (state = initialState, action) {
     case CREATE_ADVERT:
       return {
         ...state,
-        adverts: [payload, ...state.adverts],
+        adverts: [...state.adverts, payload],
         loading: false,
       };
     case DELETE_ADVERT:
