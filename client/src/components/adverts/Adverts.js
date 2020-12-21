@@ -1,6 +1,7 @@
 import React, { Fragment, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { getAdverts } from '../../actions/advert';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import '../../css/adverts2.css';
 import Spinner from '../layout/Spinner';
@@ -19,7 +20,11 @@ const Adverts = ({ getAdverts, advert: { adverts, loading } }) => {
         <Fragment>
           <div className='wrapper5'>
             <span id='title'>List of all adverts</span>
-
+            <div className='create-advert'>
+              <button id='create-advert-btn'>
+                <Link to='/create-advert'>Create Advert</Link>
+              </button>
+            </div>
             <div className='all-adverts'>
               {adverts !== null ? (
                 adverts.map((advert) => (

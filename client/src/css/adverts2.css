@@ -30,6 +30,32 @@ body {
   font-weight: 500;
   margin-bottom: 20px;
 }
+.wrapper5 .create-advert {
+  width: 100%;
+  position: relative;
+  left: 0;
+}
+.wrapper5 .create-advert #create-advert-btn {
+  margin: auto 0;
+  height: 40px;
+  width: 20%;
+  font-size: 18px;
+  border: 1px solid #7ba5cf;
+  background-color: #7ba5cf;
+  color: white;
+  font-weight: 500;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: 0.5s ease;
+}
+.wrapper5 .create-advert #create-advert-btn:hover {
+  background-color: white;
+  color: #7ba5cf;
+}
+.wrapper5 .create-advert #create-advert-btn a:hover {
+  background-color: white;
+  color: #7ba5cf;
+}
 .wrapper5 .all-adverts {
   width: 100%;
   position: relative;
@@ -135,7 +161,7 @@ body {
   border: none;
   outline: none;
   text-decoration: none;
-  color: #383838;
+  color: #7ba5cf;
 }
 #advert-link:hover,
 .wrapper5
