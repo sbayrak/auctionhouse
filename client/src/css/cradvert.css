@@ -14,9 +14,10 @@ body {
 
 .section {
   width: calc(100% - 500px);
-  height: 80vh;
+  height: 60vh;
   margin-left: 250px;
-  margin-top: 100px;
+  margin-top: 150px;
+  border: 1px solid black;
 }
 .section .create-advert {
   width: 100%;
