@@ -20,83 +20,69 @@ const SingleAdvert = ({
     getAdvertById(match.params.advertId);
   }, [getAdvertById, match.params.advertId]);
 
-  // console.log(advert); response verdi console'a
-  // if (auth.user !== null) {
-  //   console.log(auth.user.avatar);
-  // } else {
-  //   console.log('user null');
-  // }
-
   return (
     <Fragment>
       {loading ? (
         <Spinner></Spinner>
       ) : (
         <Fragment>
-          {auth.user === null ? (
+          {!auth.user ? (
             <Spinner></Spinner>
           ) : (
-            <div className='wrapper6'>
-              <div className='single-advert'>
-                <div className='single-advert-title'>
-                  <div className='single-advert-title-left'>
-                    <img src={auth.user.avatar} alt='' />
-                    <span id='single-advert-title-left-company'>
-                      <a href='#!'>{auth.user.company}</a>
-                    </span>
-                  </div>
-                  <div className='single-advert-title-right'>
-                    <textarea
-                      name='text'
-                      id='text'
-                      cols='30'
-                      rows='5'
-                      disabled
-                      value={advert.text}
-                    ></textarea>
-                    <span id='single-advert-title-right-date'>
-                      Posted on{' '}
-                      <Moment format='DD/MM/YYYY'>{advert.date}</Moment>
-                    </span>
-                  </div>
-                </div>
+            <Fragment>
+              {!advert ? (
+                <Spinner></Spinner>
+              ) : (
+                <div className='wrapper6'>
+                  <div className='single-advert'>
+                    <div className='single-advert-title'>
+                      <div className='single-advert-title-left'>
+                        <img src={auth.user.avatar} alt='' />
+                        <span id='single-advert-title-left-company'>
+                          <a href='#!'>{auth.user.company}</a>
+                        </span>
+                      </div>
+                      <div className='single-advert-title-right'>
+                        <textarea
+                          name='text'
+                          id='text'
+                          cols='30'
+                          rows='5'
+                          disabled
+                          value={advert.text}
+                        ></textarea>
+                        <span id='single-advert-title-right-date'>
+                          Posted on{' '}
+                          <Moment format='DD/MM/YYYY'>{advert.date}</Moment>
+                        </span>
+                      </div>
+                    </div>
 
-                {/* <form>
-                  <div className='single-advert-bid'>
-                    <input
-                      type='text'
-                      name='bid'
-                      id='bid'
-                      placeholder='Place your bid here...'
-                    />
-                    <button type='button' id='bid-button'>
-                      Submit
-                    </button>
-                  </div>
-                </form> */}
-                <SingleAdvertBidForm
-                  advertId={advert._id}
-                ></SingleAdvertBidForm>
+                    <SingleAdvertBidForm
+                      advertId={advert._id}
+                    ></SingleAdvertBidForm>
 
-                <div className='single-advert-comment'>
-                  <SingleAdvertCommentForm
-                    advertId={advert._id}
-                  ></SingleAdvertCommentForm>
-                </div>
-
-                <div className='single-advert-comments'>
-                  <Fragment>
-                    {advert.comments.map((comment, key) => (
-                      <SingleAdvertComment
-                        comment={comment}
-                        key={comment._id}
+                    <div className='single-advert-comment'>
+                      <SingleAdvertCommentForm
                         advertId={advert._id}
-                      ></SingleAdvertComment>
-                    ))}
-                  </Fragment>
+                      ></SingleAdvertCommentForm>
+                    </div>
+
+                    <div className='single-advert-comments'>
+                      <Fragment>
+                        {advert.comments.map((comment, key) => (
+                          <SingleAdvertComment
+                            comment={comment}
+                            key={comment._id}
+                            advertId={advert._id}
+                          ></SingleAdvertComment>
+                        ))}
+                      </Fragment>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
+              )}
+            </Fragment>
           )}
         </Fragment>
       )}
