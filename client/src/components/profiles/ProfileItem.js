@@ -24,9 +24,14 @@ const ProfileItem = ({ profile }) => {
       <div className='company-mid'>
         <div className='company-mid-group'>
           <span id='company-mid-group-bio'>Biography : </span> <br />
-          <textarea name='bio' id='bio' cols='30' rows='5' disabled>
-            {profile.bio}
-          </textarea>
+          <textarea
+            name='bio'
+            id='bio'
+            cols='30'
+            rows='5'
+            disabled
+            value={profile.bio}
+          ></textarea>
         </div>
         <div className='company-mid-group'>
           <span id='company-mid-website'>

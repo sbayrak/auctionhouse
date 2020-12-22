@@ -77,15 +77,20 @@
   color: #fff;
   padding: 5px;
   border-radius: 5px;
+  transition: 0.5s ease;
+}
+#company-top-company:hover {
+  border: 1px solid rgba(123, 165, 207, 0.5);
 }
 #company-top-company a {
-  text-decoration: underline;
-  color: black;
+  color: #7ba5cf;
+  width: 100%;
+  background-color: white;
 }
-
-.wrapper4 .companies .company .company-mid {
+#company-top-company a .wrapper4 .companies .company .company-mid {
   width: 100%;
   padding: 10px;
+  padding-left: 20px;
 }
 
 .wrapper4 .companies .company .company-mid .company-mid-group {
@@ -114,6 +119,9 @@
   .company-mid-group
   #company-mid-website {
   font-weight: 600;
+  background-color: white;
+  transition: 0.5s ease;
+  font-weight: bold;
 }
 .wrapper4
   .companies
@@ -124,7 +132,22 @@
   a {
   text-decoration: none;
   color: #7ba5cf;
+  background-color: white;
   font-weight: 500;
+  transition: 0.5s ease;
+  font-weight: bold;
+}
+.wrapper4
+  .companies
+  .company
+  .company-mid
+  .company-mid-group
+  #company-mid-website
+  a:hover {
+  background-color: white;
+  border: 1px solid rgba(123, 165, 207, 0.5);
+  transition: 0.5s ease;
+  color: #7ba5cf;
 }
 
 .wrapper4 .companies .company .company-mid .company-mid-group .socials ul {
@@ -135,10 +158,25 @@
 }
 .wrapper4 .companies .company .company-mid .company-mid-group .socials ul li {
   font-size: 20px;
-  color: #7ba5cf;
+  /* color: #7ba5cf; */
 }
 
 .wrapper4 .companies .company .company-mid .company-mid-group .socials ul li a {
   font-size: 24px;
   color: #7ba5cf;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.wrapper4
+  .companies
+  .company
+  .company-mid
+  .company-mid-group
+  .socials
+  ul
+  li
+  a:hover {
+  background-color: #7ba5cf;
+  color: white;
 }
