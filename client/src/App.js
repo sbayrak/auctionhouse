@@ -19,6 +19,7 @@ import store from './store';
 import Adverts from './components/adverts/Adverts';
 import SingleAdvert from './components/adverts/SingleAdvert';
 import CreateAdvert from './components/adverts/CreateAdvert';
+import Profile from './components/profiles/Profile';
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);
@@ -62,6 +63,11 @@ const App = () => {
               exact
               path='/create-advert'
               component={CreateAdvert}
+            ></PrivateRoute>
+            <PrivateRoute
+              exact
+              path='/companies/company/a'
+              component={Profile}
             ></PrivateRoute>
           </Switch>
           <Footer></Footer>
