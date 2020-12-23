@@ -13,7 +13,9 @@ const ProfileItem = ({ profile }) => {
           </li>
           <li>
             <span id='company-top-company'>
-              <Link to='#!'>{profile.company}</Link>
+              <Link to={`/companies/company/${profile._id}`}>
+                {profile.company}
+              </Link>
             </span>
           </li>
           <li>

@@ -66,7 +66,7 @@ const App = () => {
             ></PrivateRoute>
             <PrivateRoute
               exact
-              path='/companies/company/a'
+              path='/companies/company/:userId'
               component={Profile}
             ></PrivateRoute>
           </Switch>
