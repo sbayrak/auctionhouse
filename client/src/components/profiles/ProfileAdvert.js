@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import { Link } from 'react-router-dom';
 
 const ProfileAdvert = ({ advert }) => {
   return (
@@ -7,17 +8,20 @@ const ProfileAdvert = ({ advert }) => {
         <div className='single-advert-top'>
           <ul className='single-advert-top-ul'>
             <li>
-              <a href={`/adverts/advert/${advert._id}`} id='advert-no'>
+              <Link to={`/adverts/advert/${advert._id}`} id='advert-no'>
                 {advert._id}
-              </a>
+              </Link>
             </li>
             <li>
               <span id='advert-title'>{advert.title}</span>
             </li>
             <li>
-              <a href={`/companies/company/${advert.user}`} id='advert-company'>
+              <Link
+                to={`/companies/company/${advert.user}`}
+                id='advert-company'
+              >
                 {advert.company}
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
@@ -33,9 +37,9 @@ const ProfileAdvert = ({ advert }) => {
         </div>
         <div className='single-advert-bottom'>
           <button type='button' id='single-advert-bottom-button'>
-            <a href={`/adverts/advert/${advert._id}`} id='advert-link'>
+            <Link to={`/adverts/advert/${advert._id}`} id='advert-link'>
               Go to Advert
-            </a>
+            </Link>
           </button>
         </div>
       </div>

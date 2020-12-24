@@ -8,6 +8,7 @@ import { getAdverts } from '../../actions/advert';
 import Spinner from '../layout/Spinner';
 import Moment from 'react-moment';
 import ProfileAdvert from './ProfileAdvert';
+import { Link } from 'react-router-dom';
 
 const Profile = ({
   getAdverts,
@@ -84,41 +85,45 @@ const Profile = ({
                         <span className='profile-right-bio'>{profile.bio}</span>
 
                         <span id='title'>Social Media : </span>
-                        <ul className='socials'>
-                          <li>
-                            <a href='#'>
-                              <i className='fab fa-facebook'></i>
-                            </a>
-                          </li>
+                        {profile.social ? (
+                          <ul className='socials'>
+                            <li>
+                              <Link to={profile.social.facebook}>
+                                <i className='fab fa-facebook'></i>
+                              </Link>
+                            </li>
 
-                          <li>
-                            <a href='#'>
-                              <i className='fab fa-twitter'></i>
-                            </a>
-                          </li>
-                          <li>
-                            <a href='#'>
-                              <i className='fab fa-linkedin'></i>
-                            </a>
-                          </li>
+                            <li>
+                              <Link to={profile.social.twitter}>
+                                <i className='fab fa-twitter'></i>
+                              </Link>
+                            </li>
+                            <li>
+                              <Link to={profile.social.youtube}>
+                                <i className='fab fa-youtube'></i>
+                              </Link>
+                            </li>
 
-                          <li>
-                            <a href='#'>
-                              <i className='fab fa-instagram'></i>
-                            </a>
-                          </li>
-                          <li>
-                            <a href='#'>
-                              <i className='fab fa-linkedin'></i>
-                            </a>
-                          </li>
-                        </ul>
+                            <li>
+                              <Link to={profile.social.instagram}>
+                                <i className='fab fa-instagram'></i>
+                              </Link>
+                            </li>
+                            <li>
+                              <Link to={profile.social.linkedin}>
+                                <i className='fab fa-linkedin'></i>
+                              </Link>
+                            </li>
+                          </ul>
+                        ) : (
+                          <h2>-</h2>
+                        )}
                       </div>
                     </div>
 
                     <div className='all-adverts'>
                       {adverts
-                        .filter((advert) => advert.user == profile._id)
+                        .filter((advert) => advert.user === profile._id)
                         .map((advert) => (
                           <ProfileAdvert
                             key={advert._id}
