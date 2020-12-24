@@ -9,6 +9,10 @@
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
+  "engines": {
+    "node": "14.11.0",
+    "npm": "6.14.8"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
