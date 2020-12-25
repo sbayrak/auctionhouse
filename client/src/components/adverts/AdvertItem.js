@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import '../../css/adverts2.css';
 // import { Link } from 'react-router-dom';
 
@@ -9,26 +10,35 @@ const AdvertItem = ({ advert }) => {
       <div className='single-advert-top'>
         <ul className='single-advert-top-ul'>
           <li>
-            <a id='advert-no' href={advert._id}>{advert._id}</a>
+            <Link id='advert-no' to={`/adverts/advert/${advert._id}`}>
+              {advert._id}
+            </Link>
           </li>
           <li>
             <span id='advert-title'>{advert.title}</span>
           </li>
           <li>
-            <a href={`/company/${advert.user}`} id='advert-company'>
+            <Link to={`/company/${advert.user}`} id='advert-company'>
               {advert.company}
-            </a>
+            </Link>
           </li>
         </ul>
       </div>
       <div className='single-advert-mid'>
-        <textarea name='text' id='text' cols='30' rows='10' disabled value={advert.text}></textarea>
+        <textarea
+          name='text'
+          id='text'
+          cols='30'
+          rows='10'
+          disabled
+          value={advert.text}
+        ></textarea>
       </div>
       <div className='single-advert-bottom'>
         <button type='button' id='single-advert-bottom-button'>
-          <a href={`/adverts/advert/${advert._id}`} id='advert-link'>
+          <Link to={`/adverts/advert/${advert._id}`} id='advert-link'>
             Go to Advert
-          </a>
+          </Link>
         </button>
       </div>
     </div>
