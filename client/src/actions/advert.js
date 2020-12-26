@@ -6,6 +6,7 @@ import {
   CREATE_ADVERT,
   ADVERT_ERROR,
   ADD_BID,
+  GET_MY_ADVERTS,
   CLEAR_ADVERT,
   ADD_COMMENT,
   DELETE_COMMENT,
@@ -130,6 +131,21 @@ export const addAdvert = ({ title, text, location }) => async (dispatch) => {
     const res = await axios.post(`/api/adverts/create`, body, config);
     dispatch({
       type: CREATE_ADVERT,
+      payload: res.data,
+    });
+  } catch (err) {
+    dispatch({
+      type: ADVERT_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status },
+    });
+  }
+};
+
+export const getMyAdverts = () => async (dispatch) => {
+  try {
+    const res = await axios.get(`/api/adverts/myadverts`);
+    dispatch({
+      type: GET_MY_ADVERTS,
       payload: res.data,
     });
   } catch (err) {

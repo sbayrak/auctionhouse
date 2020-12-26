@@ -13,6 +13,7 @@ export const PROFILE_ERROR = 'PROFILE_ERROR';
 export const CLEAR_PROFILE = 'CLEAR_PROFILE';
 
 export const GET_ADVERTS = 'GET_ADVERTS';
+export const GET_MY_ADVERTS = 'GET_MY_ADVERTS';
 export const CREATE_ADVERT = 'CREATE_ADVERT';
 export const GET_ADVERT = 'GET_ADVERT';
 export const ACCEPT_BID = 'ACCEPT_BID';

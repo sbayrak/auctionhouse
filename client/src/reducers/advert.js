@@ -7,6 +7,7 @@ import {
   ADVERT_ERROR,
   CLEAR_ADVERT,
   ADD_BID,
+  GET_MY_ADVERTS,
   ADD_COMMENT,
   DELETE_COMMENT,
 } from '../actions/types';
@@ -15,6 +16,7 @@ const initialState = {
   advert: {},
   adverts: null,
   comments: [],
+  my_adverts: null,
   error: null,
   loading: true,
 };
@@ -33,6 +35,12 @@ export default function (state = initialState, action) {
       return {
         ...state,
         advert: payload,
+        loading: false,
+      };
+    case GET_MY_ADVERTS:
+      return {
+        ...state,
+        my_adverts: payload,
         loading: false,
       };
     case CLEAR_ADVERT:
