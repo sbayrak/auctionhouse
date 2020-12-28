@@ -20,7 +20,6 @@ const Dashboard = ({
   useEffect(() => {
     getMyAdverts();
   }, []);
-  console.log(my_adverts);
   return (
     <Fragment>
       {loading ? (

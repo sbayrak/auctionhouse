@@ -1,8 +1,18 @@
 import React, { Fragment } from 'react';
 import Spinner from '../layout/Spinner';
 import { Link } from 'react-router-dom';
+import DashboardMyAdvertsBids from './DashboardMyAdvertsBids';
+import { setAlert } from '../../actions/alert';
+import { deleteAdvert } from '../../actions/advert';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
-const DashboardMyAdverts = ({ advert, key }) => {
+const DashboardMyAdverts = ({ advert, key, setAlert, deleteAdvert }) => {
+  const deleteThis = (e) => {
+    setAlert('Advert successfully removed', 'success', 5000);
+    deleteAdvert(advert._id);
+  };
+
   return (
     <Fragment>
       {!advert ? (
@@ -46,21 +56,14 @@ const DashboardMyAdverts = ({ advert, key }) => {
               ></textarea>
             </div>
             <div className='single-advert-bids'>
-              <span id='single-advert-bids-title'>Bids to this advert : </span>
-              <button id='hide'>
-                <i className='fas fa-arrow-circle-down'></i>
-              </button>
-              <div className='single-advert-bid'>
-                <a href='#!' id='single-advert-bid-company'>
-                  Bayrak Company
-                </a>
-                <span id='single-advert-bid-bid'>50000</span>
-                <span id='single-advert-bid-date'>09/10/2020</span>
-
-                <button type='button' id='single-advert-bid-button'>
-                  Accept
-                </button>
-              </div>
+              <Fragment>
+                {advert.bids.map((bid) => (
+                  <DashboardMyAdvertsBids
+                    key={bid._id}
+                    bid={bid}
+                  ></DashboardMyAdvertsBids>
+                ))}
+              </Fragment>
             </div>
             <div className='single-advert-bottom'>
               <button type='button' id='single-advert-bottom-button'>
@@ -72,10 +75,9 @@ const DashboardMyAdverts = ({ advert, key }) => {
                 type='button'
                 className='advert-delete-button'
                 id='single-advert-bottom-button'
+                onClick={(e) => deleteThis(e)}
               >
-                <a href='#!' id='advert-delete-link'>
-                  Delete Advert
-                </a>
+                Delete Advert
               </button>
             </div>
           </div>
@@ -87,4 +89,9 @@ const DashboardMyAdverts = ({ advert, key }) => {
   );
 };
 
-export default DashboardMyAdverts;
+DashboardMyAdverts.propTypes = {
+  setAlert: PropTypes.func,
+  deleteAdvert: PropTypes.func,
+};
+
+export default connect(null, { setAlert, deleteAdvert })(DashboardMyAdverts);

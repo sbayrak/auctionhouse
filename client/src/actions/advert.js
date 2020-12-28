@@ -130,6 +130,9 @@ export const addAdvert = ({ title, text, location }) => async (dispatch) => {
   try {
     const res = await axios.post(`/api/adverts/create`, body, config);
     dispatch({
+      type: CLEAR_ADVERT,
+    });
+    dispatch({
       type: CREATE_ADVERT,
       payload: res.data,
     });
@@ -140,12 +143,32 @@ export const addAdvert = ({ title, text, location }) => async (dispatch) => {
     });
   }
 };
+export const clearAdverts = () => async (dispatch) => {
+  dispatch({
+    type: CLEAR_ADVERT,
+  });
+};
 
 export const getMyAdverts = () => async (dispatch) => {
   try {
     const res = await axios.get(`/api/adverts/myadverts`);
     dispatch({
       type: GET_MY_ADVERTS,
+      payload: res.data,
+    });
+  } catch (err) {
+    dispatch({
+      type: ADVERT_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status },
+    });
+  }
+};
+
+export const deleteAdvert = (advertId) => async (dispatch) => {
+  try {
+    const res = await axios.delete(`/api/adverts/${advertId}`);
+    dispatch({
+      type: DELETE_ADVERT,
       payload: res.data,
     });
   } catch (err) {

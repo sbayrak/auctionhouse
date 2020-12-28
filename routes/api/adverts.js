@@ -306,7 +306,8 @@ router.delete('/:advertId', auth, async (req, res) => {
     }
 
     await advert.remove();
-    res.json({ msg: 'Advert removed...' });
+    let adverts = await Advert.find();
+    res.json(adverts);
   } catch (err) {
     if (!mongoose.Types.ObjectId.isValid(req.params.advertId)) {
       return res.status(404).json({ msg: 'Post not found' });

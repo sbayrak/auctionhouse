@@ -17,6 +17,7 @@ const initialState = {
   adverts: null,
   comments: [],
   my_adverts: null,
+  new_advert: null,
   error: null,
   loading: true,
 };
@@ -49,6 +50,7 @@ export default function (state = initialState, action) {
         advert: null,
         adverts: null,
         error: null,
+        loading: false,
       };
 
     case ADD_BID:
@@ -74,19 +76,26 @@ export default function (state = initialState, action) {
         },
         loading: false,
       };
+    case DELETE_ADVERT:
+      return {
+        ...state,
+        my_adverts: payload,
+        loading: false,
+      };
 
     case CREATE_ADVERT:
       return {
         ...state,
         adverts: [...state.adverts, payload],
+        new_advert: payload,
         loading: false,
       };
-    case DELETE_ADVERT:
-      return {
-        ...state,
-        adverts: state.adverts.filter((advert) => advert._id !== payload),
-        loading: false,
-      };
+    // case DELETE_ADVERT:
+    //   return {
+    //     ...state,
+    //     adverts: state.adverts.filter((advert) => advert._id !== payload),
+    //     loading: false,
+    //   };
     case ADVERT_ERROR:
       return {
         ...state,
