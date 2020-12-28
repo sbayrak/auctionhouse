@@ -5,11 +5,13 @@ import '../../css/dashboard.css';
 import { getCurrentProfile } from '../../actions/profile';
 import { getMyAdverts } from '../../actions/advert';
 import Spinner from '../layout/Spinner';
+import DashboardMyAdverts from './DashboardMyAdverts';
 
 const Dashboard = ({
   getCurrentProfile,
   getMyAdverts,
-  auth: { user },
+  auth: { user, isAuthenticated },
+  advert: { my_adverts },
   profile: { profile, loading },
 }) => {
   useEffect(() => {
@@ -18,7 +20,7 @@ const Dashboard = ({
   useEffect(() => {
     getMyAdverts();
   }, []);
-
+  console.log(my_adverts);
   return (
     <Fragment>
       {loading ? (
@@ -236,135 +238,19 @@ const Dashboard = ({
                 </div>
               </div>
             </div>
-            {/* ilk part  */}
+            {/* ilk part sonu */}
+            {/* ikinci part baslangici */}
             <div className='myadverts'>
               <span id='myadverts-title'>My Adverts</span>
-              <div className='single-advert'>
-                <div className='single-advert-top'>
-                  <ul className='single-advert-top-ul'>
-                    <li>
-                      <a href='#!' id='advert-no'>
-                        5f8011878999670a50cb13ec
-                      </a>
-                    </li>
-                    <li>
-                      <span id='advert-title'>
-                        Need construction trucks for new buildings
-                      </span>
-                    </li>
-                    <li>
-                      <a href='#!' id='advert-company'>
-                        Bayrak Company
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-                <div className='single-advert-mid'>
-                  <textarea name='text' id='text' cols='30' rows='10' disabled>
-                    The new constrution area needs approximately 15 trucks
-                  </textarea>
-                </div>
-                <div className='single-advert-bids'>
-                  <span id='single-advert-bids-title'>
-                    Bids to this advert :{' '}
-                  </span>
-                  <button id='hide'>
-                    <i className='fas fa-arrow-circle-down'></i>
-                  </button>
-                  <div className='single-advert-bid'>
-                    <a href='#!' id='single-advert-bid-company'>
-                      Bayrak Company
-                    </a>
-                    <span id='single-advert-bid-bid'>50000</span>
-                    <span id='single-advert-bid-date'>09/10/2020</span>
-
-                    <button type='button' id='single-advert-bid-button'>
-                      Accept
-                    </button>
-                  </div>
-                </div>
-                <div className='single-advert-bottom'>
-                  <button type='button' id='single-advert-bottom-button'>
-                    <a href='#!' id='advert-link'>
-                      Go to Advert
-                    </a>
-                  </button>
-                  <button
-                    type='button'
-                    className='advert-delete-button'
-                    id='single-advert-bottom-button'
-                  >
-                    <a href='#!' id='advert-delete-link'>
-                      Delete Advert
-                    </a>
-                  </button>
-                </div>
-              </div>
-              <div className='single-advert'>
-                <div className='single-advert-top'>
-                  <ul className='single-advert-top-ul'>
-                    <li>
-                      <a href='#!' id='advert-no'>
-                        5f8011878999670a50cb13ec
-                      </a>
-                    </li>
-                    <li>
-                      <span id='advert-title'>
-                        Need construction trucks for new buildings
-                      </span>
-                    </li>
-                    <li>
-                      <a href='#!' id='advert-company'>
-                        Bayrak Company
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-                <div className='single-advert-mid'>
-                  <textarea name='text' id='text' cols='30' rows='10' disabled>
-                    The new constrution area needs approximately 15 trucks
-                  </textarea>
-                </div>
-                <div className='single-advert-bids'>
-                  <span id='single-advert-bids-title'>
-                    Bids to this advert :{' '}
-                  </span>
-                  <button id='hide'>
-                    <i className='fas fa-arrow-circle-down'></i>
-                  </button>
-                  <div className='single-advert-bid'>
-                    <a href='#!' id='single-advert-bid-company'>
-                      Bayrak Company
-                    </a>
-                    <span id='single-advert-bid-bid'>50000</span>
-                    <span id='single-advert-bid-date'>09/10/2020</span>
-
-                    <button type='button' id='single-advert-bid-button'>
-                      Accept
-                    </button>
-                  </div>
-                </div>
-                <div className='single-advert-bottom'>
-                  <button type='button' id='single-advert-bottom-button'>
-                    <a href='#!' id='advert-link'>
-                      Go to Advert
-                    </a>
-                  </button>
-                  <button
-                    type='button'
-                    className='advert-delete-button'
-                    id='single-advert-bottom-button'
-                  >
-                    <a href='#!' id='advert-delete-link'>
-                      Delete Advert
-                    </a>
-                  </button>
-                </div>
-              </div>
-
-              <div id='setup'></div>
+              {my_adverts &&
+                my_adverts.map((advert) => (
+                  <DashboardMyAdverts
+                    key={advert._id}
+                    advert={advert}
+                  ></DashboardMyAdverts>
+                ))}
             </div>
-
+            {/* ikinci part sonu */}
             <div className='divTable accepted-bids'>
               <span id='divTable-title'>My Accepted Adverts</span> <br />
               <br />
@@ -462,13 +348,14 @@ Dashboard.propTypes = {
   getCurrentProfile: PropTypes.func.isRequired,
   getMyAdverts: PropTypes.func,
   auth: PropTypes.object.isRequired,
-
+  advert: PropTypes.object,
   profile: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   auth: state.auth,
   profile: state.profile,
+  advert: state.advert,
 });
 
 export default connect(mapStateToProps, { getCurrentProfile, getMyAdverts })(
