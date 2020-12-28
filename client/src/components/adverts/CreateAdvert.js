@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { addAdvert } from '../../actions/advert';
 import { getAdverts } from '../../actions/advert';
-import { clearAdverts } from '../../actions/advert';
 import { setAlert } from '../../actions/alert';
 import { Fragment } from 'react';
 import Spinner from '../layout/Spinner';
@@ -14,28 +13,16 @@ const CreateAdvert = ({
   addAdvert,
   setAlert,
   getAdverts,
-  advert: { adverts, loading, new_advert },
+  advert: { adverts, loading },
 }) => {
   const [title, setTitle] = useState('');
   const [text, setText] = useState('');
   const [location, setLocation] = useState('');
   const [submitRedirect, setSubmitRedirect] = useState(false);
 
-  var lastElement;
-
   useEffect(() => {
-    clearAdverts();
-  }, []);
-  useEffect(() => {
-    clearAdverts();
     getAdverts();
-  }, [submitRedirect]);
-
-  if (adverts !== null) {
-    lastElement = adverts[adverts.length - 1];
-
-    console.log(lastElement);
-  }
+  }, []);
 
   const submitNewAdvert = (e) => {
     e.preventDefault();
@@ -65,12 +52,13 @@ const CreateAdvert = ({
       setText('');
       setTitle('');
       setAlert('You have successfully posted your advert!', 'success');
+      setSubmitRedirect(true);
     }
   };
-
-  // if (adverts !== null) {lastElement = adverts[adverts.length - 1];
-  // }
-  console.log(lastElement);
+  let lastElement = 0;
+  if (adverts !== null) {
+    lastElement = adverts[adverts.length - 1];
+  }
   return (
     <Fragment>
       {loading ? (
@@ -84,10 +72,7 @@ const CreateAdvert = ({
                 <Fragment>
                   <form
                     className='create-advert-form'
-                    onSubmit={(e) => {
-                      submitNewAdvert(e);
-                      setSubmitRedirect(true);
-                    }}
+                    onSubmit={(e) => submitNewAdvert(e)}
                   >
                     <div className='create-advert-top'>
                       <label htmlFor='title' className='create-advert-lbl'>
@@ -126,11 +111,11 @@ const CreateAdvert = ({
                     </div>
                     <button type='submit'>Submit</button>
                   </form>
-                  {/* {submitRedirect && (
+                  {submitRedirect && (
                     <Redirect
                       to={`/adverts/advert/${lastElement._id}`}
                     ></Redirect>
-                  )} */}
+                  )}
                 </Fragment>
               ) : (
                 <Spinner></Spinner>
