@@ -129,9 +129,7 @@ export const addAdvert = ({ title, text, location }) => async (dispatch) => {
 
   try {
     const res = await axios.post(`/api/adverts/create`, body, config);
-    dispatch({
-      type: CLEAR_ADVERT,
-    });
+
     dispatch({
       type: CREATE_ADVERT,
       payload: res.data,
