@@ -10,6 +10,7 @@ import {
   GET_MY_ADVERTS,
   ADD_COMMENT,
   DELETE_COMMENT,
+  CLEAR_NEW,
 } from '../actions/types';
 
 const initialState = {
@@ -37,6 +38,7 @@ export default function (state = initialState, action) {
         ...state,
         advert: payload,
         loading: false,
+        new_advert: null,
       };
     case GET_MY_ADVERTS:
       return {
@@ -52,7 +54,12 @@ export default function (state = initialState, action) {
         error: null,
         loading: false,
       };
-
+    case CLEAR_NEW:
+      return {
+        ...state,
+        new_advert: null,
+        loading: false,
+      };
     case ADD_BID:
       return {
         ...state,

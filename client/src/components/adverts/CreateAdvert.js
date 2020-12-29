@@ -13,16 +13,11 @@ const CreateAdvert = ({
   addAdvert,
   setAlert,
   getAdverts,
-  advert: { adverts, loading },
+  advert: { adverts, loading, new_advert },
 }) => {
   const [title, setTitle] = useState('');
   const [text, setText] = useState('');
   const [location, setLocation] = useState('');
-  const [submitRedirect, setSubmitRedirect] = useState(false);
-
-  useEffect(() => {
-    getAdverts();
-  }, []);
 
   const submitNewAdvert = (e) => {
     e.preventDefault();
@@ -51,14 +46,18 @@ const CreateAdvert = ({
       setLocation('');
       setText('');
       setTitle('');
-      setAlert('You have successfully posted your advert!', 'success');
-      setSubmitRedirect(true);
+      setAlert(
+        'Success! You are being redirected, please wait',
+        'success',
+        2500
+      );
     }
   };
-  let lastElement = 0;
-  if (adverts !== null) {
-    lastElement = adverts[adverts.length - 1];
+
+  if (new_advert) {
+    return <Redirect to={`/adverts/advert/${new_advert._id}`}></Redirect>;
   }
+
   return (
     <Fragment>
       {loading ? (
@@ -111,11 +110,6 @@ const CreateAdvert = ({
                     </div>
                     <button type='submit'>Submit</button>
                   </form>
-                  {submitRedirect && (
-                    <Redirect
-                      to={`/adverts/advert/${lastElement._id}`}
-                    ></Redirect>
-                  )}
                 </Fragment>
               ) : (
                 <Spinner></Spinner>
