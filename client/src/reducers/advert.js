@@ -72,6 +72,12 @@ export default function (state = initialState, action) {
         advert: { ...state.advert, comments: payload },
         loading: false,
       };
+    case ACCEPT_BID:
+      return {
+        ...state,
+        my_adverts: payload,
+        loading: false,
+      };
     case DELETE_COMMENT:
       return {
         ...state,

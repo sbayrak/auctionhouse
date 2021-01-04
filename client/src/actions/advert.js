@@ -176,3 +176,18 @@ export const deleteAdvert = (advertId) => async (dispatch) => {
     });
   }
 };
+
+export const acceptBid = (advertId, bidId) => async (dispatch) => {
+  try {
+    const res = await axios.post(`/api/adverts/accept/${advertId}/${bidId}`);
+    dispatch({
+      type: ACCEPT_BID,
+      payload: res.data,
+    });
+  } catch (err) {
+    dispatch({
+      type: ADVERT_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status },
+    });
+  }
+};

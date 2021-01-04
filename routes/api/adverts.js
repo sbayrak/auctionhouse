@@ -161,7 +161,9 @@ router.post('/accept/:advertId/:bidId', auth, async (req, res) => {
         new: true,
       }
     );
-    res.json(advert);
+    let user = await User.findById(req.user.id);
+    let adverts = await Advert.find({ user: user.id });
+    res.json(adverts);
   } catch (err) {
     console.error(err.message);
     res.status(500).send('Server error...');

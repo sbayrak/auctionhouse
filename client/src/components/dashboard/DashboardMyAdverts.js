@@ -57,10 +57,14 @@ const DashboardMyAdverts = ({ advert, key, setAlert, deleteAdvert }) => {
             </div>
             <div className='single-advert-bids'>
               <Fragment>
+                <span id='single-advert-bids-title'>
+                  Bids to this advert :{' '}
+                </span>
                 {advert.bids.map((bid) => (
                   <DashboardMyAdvertsBids
                     key={bid._id}
                     bid={bid}
+                    advert={advert}
                   ></DashboardMyAdvertsBids>
                 ))}
               </Fragment>

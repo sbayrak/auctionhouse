@@ -392,6 +392,17 @@
   .myadverts
   .single-advert
   .single-advert-bids
+  .single-advert-bid.accepted {
+  padding: 5px;
+  display: flex;
+  border-radius: 5px;
+  justify-content: space-evenly;
+  background-color: #7ba5cf;
+}
+.wrapper3
+  .myadverts
+  .single-advert
+  .single-advert-bids
   .single-advert-bid
   #single-advert-bid-company {
   color: black;
