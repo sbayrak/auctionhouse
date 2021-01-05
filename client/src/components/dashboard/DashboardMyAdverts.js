@@ -12,7 +12,6 @@ const DashboardMyAdverts = ({ advert, key, setAlert, deleteAdvert }) => {
     setAlert('Advert successfully removed', 'success', 5000);
     deleteAdvert(advert._id);
   };
-
   return (
     <Fragment>
       {!advert ? (
@@ -60,13 +59,25 @@ const DashboardMyAdverts = ({ advert, key, setAlert, deleteAdvert }) => {
                 <span id='single-advert-bids-title'>
                   Bids to this advert :{' '}
                 </span>
-                {advert.bids.map((bid) => (
-                  <DashboardMyAdvertsBids
-                    key={bid._id}
-                    bid={bid}
-                    advert={advert}
-                  ></DashboardMyAdvertsBids>
-                ))}
+                <button id='hide'>
+                  <i className='fas fa-arrow-circle-down'></i>
+                </button>
+                {/* {advert.bids &&
+                  advert.bids.map((bid) => (
+                    <DashboardMyAdvertsBids
+                      key={bid._id}
+                      bid={bid}
+                      advert={advert}
+                    ></DashboardMyAdvertsBids>
+                  ))} */}
+                {advert.bids &&
+                  advert.bids.map((bid, index) => (
+                    <DashboardMyAdvertsBids
+                      key={index}
+                      bid={bid}
+                      advert={advert}
+                    ></DashboardMyAdvertsBids>
+                  ))}
               </Fragment>
             </div>
             <div className='single-advert-bottom'>

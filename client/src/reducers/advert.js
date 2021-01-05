@@ -11,6 +11,8 @@ import {
   ADD_COMMENT,
   DELETE_COMMENT,
   CLEAR_NEW,
+  ACCEPTED_ADVERTS,
+  MY_BIDS,
 } from '../actions/types';
 
 const initialState = {
@@ -18,7 +20,9 @@ const initialState = {
   adverts: null,
   comments: [],
   my_adverts: null,
+  my_bids: null,
   new_advert: null,
+  accepted_adverts: null,
   error: null,
   loading: true,
 };
@@ -101,6 +105,18 @@ export default function (state = initialState, action) {
         ...state,
         adverts: [...state.adverts, payload],
         new_advert: payload,
+        loading: false,
+      };
+    case ACCEPTED_ADVERTS:
+      return {
+        ...state,
+        accepted_adverts: payload,
+        loading: false,
+      };
+    case MY_BIDS:
+      return {
+        ...state,
+        my_bids: payload,
         loading: false,
       };
     // case DELETE_ADVERT:

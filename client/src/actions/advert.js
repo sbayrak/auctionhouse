@@ -10,6 +10,8 @@ import {
   CLEAR_ADVERT,
   ADD_COMMENT,
   DELETE_COMMENT,
+  ACCEPTED_ADVERTS,
+  MY_BIDS,
 } from '../actions/types';
 import axios from 'axios';
 import { setAlert } from './alert';
@@ -182,6 +184,36 @@ export const acceptBid = (advertId, bidId) => async (dispatch) => {
     const res = await axios.post(`/api/adverts/accept/${advertId}/${bidId}`);
     dispatch({
       type: ACCEPT_BID,
+      payload: res.data,
+    });
+  } catch (err) {
+    dispatch({
+      type: ADVERT_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status },
+    });
+  }
+};
+
+export const myAcceptedAdverts = () => async (dispatch) => {
+  try {
+    const res = await axios.get(`/api/adverts/accepted-bids`);
+    dispatch({
+      type: ACCEPTED_ADVERTS,
+      payload: res.data,
+    });
+  } catch (err) {
+    dispatch({
+      type: ADVERT_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status },
+    });
+  }
+};
+
+export const myBids = () => async (dispatch) => {
+  try {
+    const res = await axios.get(`/api/adverts/mybids`);
+    dispatch({
+      type: MY_BIDS,
       payload: res.data,
     });
   } catch (err) {

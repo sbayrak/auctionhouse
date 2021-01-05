@@ -6,6 +6,8 @@ import { getCurrentProfile } from '../../actions/profile';
 import { getMyAdverts } from '../../actions/advert';
 import Spinner from '../layout/Spinner';
 import DashboardMyAdverts from './DashboardMyAdverts';
+import DashboardMyAccepted from './DashboardMyAccepted';
+import DashboardMyBids from './DashboardMyBids';
 
 const Dashboard = ({
   getCurrentProfile,
@@ -250,16 +252,17 @@ const Dashboard = ({
                 ))}
             </div>
             {/* ikinci part sonu */}
+            {/* my accepted adverts basi  */}
             <div className='divTable accepted-bids'>
-              <span id='divTable-title'>My Accepted Adverts</span> <br />
+              <span id='divTable-title'>My Accepted Bids</span> <br />
               <br />
               <div className='divTableBody'>
                 <div className='divTableRow'>
                   <div className='divTableCell' id='no'>
-                    Advert Number
+                    Bidder Number
                   </div>
                   <div className='divTableCell' id='title'>
-                    Advert Title
+                    Bidder Company
                   </div>
                   <div className='divTableCell' id='date'>
                     Advert Date
@@ -268,28 +271,12 @@ const Dashboard = ({
                     Bid
                   </div>
                 </div>
-                <div className='divTableRow'>
-                  <div className='divTableCell'>
-                    <a href='#!'>5f8011878999670a50cb13ec</a>
-                  </div>
-                  <div className='divTableCell'>
-                    &nbsp;Need construction trucks for new buildings
-                  </div>
-                  <div className='divTableCell'>&nbsp;07/12/2020</div>
-                  <div className='divTableCell'>&nbsp;50000</div>
-                </div>
-                <div className='divTableRow'>
-                  <div className='divTableCell'>
-                    <a href='#!'>5f8011878999670a50cb13ec</a>
-                  </div>
-                  <div className='divTableCell'>
-                    &nbsp;Need construction trucks for new buildings
-                  </div>
-                  <div className='divTableCell'>&nbsp;&nbsp;07/12/2020</div>
-                  <div className='divTableCell'>&nbsp;50000</div>
-                </div>
+
+                <DashboardMyAccepted></DashboardMyAccepted>
               </div>
             </div>
+            {/* my accepted adverts sonu  */}
+            {/* my bids'in basi */}
             <div className='divTable bids-by-me'>
               <span id='divTable-title'>Bids made by me : </span> <br />
               <br />
@@ -298,9 +285,9 @@ const Dashboard = ({
                   <div className='divTableCell' id='no'>
                     Advert Number
                   </div>
-                  <div className='divTableCell' id='title'>
+                  {/* <div className='divTableCell' id='title'>
                     Advert Title
-                  </div>
+                  </div> */}
                   <div className='divTableCell' id='date'>
                     Advert Date
                   </div>
@@ -308,28 +295,10 @@ const Dashboard = ({
                     Bid
                   </div>
                 </div>
-                <div className='divTableRow'>
-                  <div className='divTableCell'>
-                    <a href='#!'>5f8011878999670a50cb13ec</a>
-                  </div>
-                  <div className='divTableCell'>
-                    &nbsp;Need construction trucks for new buildings
-                  </div>
-                  <div className='divTableCell'>&nbsp;07/12/2020</div>
-                  <div className='divTableCell'>&nbsp;50000</div>
-                </div>
-                <div className='divTableRow'>
-                  <div className='divTableCell'>
-                    <a href='#!'>5f8011878999670a50cb13ec</a>
-                  </div>
-                  <div className='divTableCell'>
-                    &nbsp;Need construction trucks for new buildings
-                  </div>
-                  <div className='divTableCell'>&nbsp;&nbsp;07/12/2020</div>
-                  <div className='divTableCell'>&nbsp;50000</div>
-                </div>
+                <DashboardMyBids></DashboardMyBids>
               </div>
             </div>
+            {/* my bids'in sonu */}
 
             <div className='dashboard-bottom'>
               <button type='button' id='delete-account'>
