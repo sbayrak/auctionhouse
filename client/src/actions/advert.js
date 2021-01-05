@@ -12,6 +12,7 @@ import {
   DELETE_COMMENT,
   ACCEPTED_ADVERTS,
   MY_BIDS,
+  CLEAR_PROFILE,
 } from '../actions/types';
 import axios from 'axios';
 import { setAlert } from './alert';

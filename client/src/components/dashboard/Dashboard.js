@@ -8,6 +8,7 @@ import Spinner from '../layout/Spinner';
 import DashboardMyAdverts from './DashboardMyAdverts';
 import DashboardMyAccepted from './DashboardMyAccepted';
 import DashboardMyBids from './DashboardMyBids';
+import { deleteAccount } from '../../actions/profile';
 
 const Dashboard = ({
   getCurrentProfile,
@@ -15,6 +16,7 @@ const Dashboard = ({
   auth: { user, isAuthenticated },
   advert: { my_adverts },
   profile: { profile, loading },
+  deleteAccount,
 }) => {
   useEffect(() => {
     getCurrentProfile();
@@ -301,7 +303,11 @@ const Dashboard = ({
             {/* my bids'in sonu */}
 
             <div className='dashboard-bottom'>
-              <button type='button' id='delete-account'>
+              <button
+                type='button'
+                id='delete-account'
+                onClick={() => deleteAccount()}
+              >
                 Delete Account
               </button>
             </div>
@@ -318,6 +324,7 @@ Dashboard.propTypes = {
   auth: PropTypes.object.isRequired,
   advert: PropTypes.object,
   profile: PropTypes.object.isRequired,
+  deleteAccount: PropTypes.func,
 };
 
 const mapStateToProps = (state) => ({
@@ -326,6 +333,8 @@ const mapStateToProps = (state) => ({
   advert: state.advert,
 });
 
-export default connect(mapStateToProps, { getCurrentProfile, getMyAdverts })(
-  Dashboard
-);
+export default connect(mapStateToProps, {
+  getCurrentProfile,
+  getMyAdverts,
+  deleteAccount,
+})(Dashboard);

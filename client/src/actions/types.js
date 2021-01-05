@@ -27,3 +27,4 @@ export const CLEAR_ADVERT = 'CLEAR_ADVERT';
 export const CLEAR_NEW = 'CLEAR_NEW';
 export const ADD_COMMENT = 'ADD_COMMENT';
 export const DELETE_COMMENT = 'DELETE_COMMENT';
+export const ACCOUNT_DELETED = 'ACCOUNT_DELETED';

@@ -6,6 +6,7 @@ import {
   CLEAR_PROFILE,
   LOGIN_SUCCESS,
   LOGOUT,
+  ACCOUNT_DELETED,
   USER_LOADED,
 } from '../actions/types';
 
@@ -49,6 +50,7 @@ export default function (state = initialState, action) {
         user: null,
       };
     case CLEAR_PROFILE:
+    case ACCOUNT_DELETED:
       return {
         ...state,
         profile: null,
