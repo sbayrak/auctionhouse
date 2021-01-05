@@ -27,7 +27,7 @@ const DashboardMyAdvertsBids = ({ bid, advert, acceptBid }) => {
           }
         >
           <a
-            href={`/companies/company/${advert.company}`}
+            href={`/companies/company/${bid.user}`}
             id='single-advert-bid-company'
           >
             {bid.company ? bid.company : '-'}
