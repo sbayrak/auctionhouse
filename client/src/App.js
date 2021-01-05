@@ -20,6 +20,7 @@ import Adverts from './components/adverts/Adverts';
 import SingleAdvert from './components/adverts/SingleAdvert';
 import CreateAdvert from './components/adverts/CreateAdvert';
 import Profile from './components/profiles/Profile';
+import NotFound from './components/layout/NotFound';
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);
@@ -38,9 +39,10 @@ const App = () => {
       <Router>
         <Fragment>
           <Navbar></Navbar>
-          <Route exact path='/' component={Landing}></Route>
+
           <Alert></Alert>
           <Switch>
+            <Route exact path='/' component={Landing}></Route>
             <Route exact path='/register' component={Register}></Route>
             <Route exact path='/login' component={Login}></Route>
             <Route exact path='/companies' component={Profiles}></Route>
@@ -69,6 +71,7 @@ const App = () => {
               path='/companies/company/:userId'
               component={Profile}
             ></PrivateRoute>
+            <Route component={NotFound}></Route>
           </Switch>
           <Footer></Footer>
         </Fragment>
