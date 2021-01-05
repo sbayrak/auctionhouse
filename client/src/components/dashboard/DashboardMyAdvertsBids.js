@@ -25,7 +25,9 @@ const DashboardMyAdvertsBids = ({ bid, advert, acceptBid }) => {
         </button>
         <div
           className={
-            advert.status ? 'single-advert-bid accepted' : 'single-advert-bid'
+            advert.status && advert.accepted.bid == bid.bid
+              ? 'single-advert-bid accepted'
+              : 'single-advert-bid'
           }
         >
           <a
@@ -40,13 +42,30 @@ const DashboardMyAdvertsBids = ({ bid, advert, acceptBid }) => {
           </span>
 
           {advert.status && advert.accepted.bid == bid.bid ? (
-            <button disabled type='submit' id='single-advert-bid-button'>
+            <button
+              disabled='false'
+              style={{ cursor: 'not-allowed' }}
+              type='submit'
+              id='single-advert-bid-button'
+            >
               Accepted
             </button>
           ) : (
-            <button type='submit' id='single-advert-bid-button'>
-              Accept
-            </button>
+            <Fragment>
+              {advert.status ? (
+                <button
+                  type='submit'
+                  id='single-advert-bid-button'
+                  style={{ cursor: 'not-allowed' }}
+                >
+                  Accept
+                </button>
+              ) : (
+                <button type='submit' id='single-advert-bid-button'>
+                  Accept
+                </button>
+              )}
+            </Fragment>
           )}
         </div>
       </form>
