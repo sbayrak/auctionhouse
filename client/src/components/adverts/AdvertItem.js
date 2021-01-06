@@ -18,7 +18,7 @@ const AdvertItem = ({ advert }) => {
             <span id='advert-title'>{advert.title}</span>
           </li>
           <li>
-            <Link to={`/company/${advert.user}`} id='advert-company'>
+            <Link to={`/companies/company/${advert.user}`} id='advert-company'>
               {advert.company}
             </Link>
           </li>

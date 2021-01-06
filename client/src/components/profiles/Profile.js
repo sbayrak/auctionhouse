@@ -58,7 +58,11 @@ const Profile = ({
                     </div>
                     <div className='profile-right'>
                       <div className='profile-right-contact'>
-                        <h3>Contact Information</h3>
+                        <h3>Contact's Information</h3>
+                        <span id='title'> Company name : </span>
+                        <span className='profile-right-companyfullname'>
+                          {profile.company}
+                        </span>
                         <span id='title'> Company Fullname : </span>
                         <span className='profile-right-companyfullname'>
                           {profile.companyfullname}
@@ -76,6 +80,10 @@ const Profile = ({
                       <div className='profile-right-info'>
                         <h3>General Information</h3>
 
+                        <span id='title'>Tax Number : </span>
+                        <span className='profile-right-location'>
+                          {profile.taxnum}
+                        </span>
                         <span id='title'>Location : </span>
                         <span className='profile-right-location'>
                           {profile.location}
