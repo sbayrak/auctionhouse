@@ -9,7 +9,7 @@ const NotFound = ({ auth: { isAuthenticated } }) => {
   const [myRed, setMyRed] = useState(false);
   const styles = {
     width: 'calc(100% - 100px)',
-    height: '600px',
+    height: '350px',
     position: 'relative',
     top: '200px',
     marginBottom: '150px',
@@ -33,6 +33,13 @@ const NotFound = ({ auth: { isAuthenticated } }) => {
         style={styles}
         onMouseMove={() => setMyRed(true)}
       ></img>
+      <br />
+      <br />
+      <br />
+      <br />
+      <h2 style={{ position: 'relative', left: '25%', top: '30%' }}>
+        The page not found. You are being redirected to the safe zone...
+      </h2>
     </Fragment>
   );
 };
