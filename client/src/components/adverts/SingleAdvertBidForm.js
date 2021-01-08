@@ -30,7 +30,7 @@ export const SingleAdvertBidForm = ({ advertId, placeBid, setAlert }) => {
             id='bid'
             value={bid}
             onChange={(e) => setBid(e.target.value)}
-            placeholder='Place your bid here...'
+            placeholder='(TL) Place your bid here...'
           />
           <button type='submit' id='bid-button'>
             Submit
