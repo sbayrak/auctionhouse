@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 const User = require('../../models/User');
 const { body, validationResult } = require('express-validator');
 const Advert = require('../../models/Advert');
+const bcrypt = require('bcryptjs');
 
 // @route   GET /api/profile/me
 // @desc    Get current logged user
@@ -79,6 +80,7 @@ router.post(
     const {
       website,
       bio,
+      password,
       location,
       facebook,
       instagram,
@@ -87,6 +89,13 @@ router.post(
       youtube,
     } = req.body;
     let profileFields = {};
+    const user = await User.findById(req.user.id);
+
+    if (password) {
+      // GENERATE SALT AND HASH PASSWORD
+      const salt = await bcrypt.genSalt(10);
+      profileFields.password = await bcrypt.hash(password, salt);
+    }
     if (website) profileFields.website = website;
     if (bio) profileFields.bio = bio;
     if (location) profileFields.location = location;

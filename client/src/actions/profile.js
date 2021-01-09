@@ -61,6 +61,55 @@ export const getProfileById = (userId) => async (dispatch) => {
     });
   }
 };
+
+export const updateProfile = ({
+  website,
+  location,
+  password,
+  bio,
+  twitter,
+  facebook,
+  linkedin,
+  youtube,
+  instagram,
+}) => async (dispatch) => {
+  const config = {
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  };
+
+  const body = JSON.stringify({
+    website,
+    bio,
+    password,
+    location,
+    facebook,
+    instagram,
+    twitter,
+    linkedin,
+    youtube,
+  });
+  try {
+    const res = await axios.post(`/api/profile/update`, body, config);
+    dispatch({
+      type: GET_PROFILE,
+      payload: res.data,
+    });
+  } catch (err) {
+    const errors = err.response.data.errors;
+
+    if (errors) {
+      errors.forEach((error) => dispatch(setAlert(error.msg, 'danger')));
+    }
+
+    dispatch({
+      type: PROFILE_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status },
+    });
+  }
+};
+
 export const deleteAccount = () => async (dispatch) => {
   if (window.confirm('Are you sure? This cannot be undone')) {
     try {

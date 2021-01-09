@@ -15,7 +15,6 @@ const DashboardMyAdvertsBids = ({ bid, advert, acceptBid }) => {
     setAlert('You have successfully accepted a bid!', 'success', 3000);
   };
 
-  console.log(advert.accepted);
   return (
     <Fragment>
       <form onSubmit={(e) => submitBid(e)}>

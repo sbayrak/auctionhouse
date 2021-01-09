@@ -21,6 +21,7 @@ import SingleAdvert from './components/adverts/SingleAdvert';
 import CreateAdvert from './components/adverts/CreateAdvert';
 import Profile from './components/profiles/Profile';
 import NotFound from './components/layout/NotFound';
+import DashboardActions from './components/dashboard/DashboardActions';
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);
@@ -50,6 +51,11 @@ const App = () => {
               exact
               path='/dashboard'
               component={Dashboard}
+            ></PrivateRoute>
+            <PrivateRoute
+              exact
+              path='/dashboard/edit-profile'
+              component={DashboardActions}
             ></PrivateRoute>
             <PrivateRoute
               exact

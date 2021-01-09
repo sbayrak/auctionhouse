@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import '../../css/dashboard.css';
 import { getCurrentProfile } from '../../actions/profile';
+import { Link } from 'react-router-dom';
 import { getMyAdverts } from '../../actions/advert';
 import Spinner from '../layout/Spinner';
 import DashboardMyAdverts from './DashboardMyAdverts';
@@ -45,9 +46,9 @@ const Dashboard = ({
 
                 <div className='profile-information-bottom'>
                   <div className='profile-information-bottom-group'>
-                    <button className='profile-information-bottom-edit-button'>
-                      Edit Profile
-                    </button>
+                    {/* <button className='profile-information-bottom-edit-button'> */}
+                    <Link to='/dashboard/edit-profile'>Edit Profile</Link>
+                    {/* </button> */}
                     {/* <!-- <button className="profile-information-bottom-update">Update</button> --> */}
                   </div>
 

@@ -5,14 +5,21 @@ import { placeBid } from '../../actions/advert';
 import { Fragment } from 'react';
 import { setAlert } from '../../actions/alert';
 
-export const SingleAdvertBidForm = ({ advertId, placeBid, setAlert }) => {
+export const SingleAdvertBidForm = ({
+  advertId,
+  placeBid,
+  setAlert,
+  status,
+}) => {
   const [bid, setBid] = useState('');
   // console.log(bid);
 
   const submitBid = (e) => {
     e.preventDefault();
     let isnum = /^\d+$/.test(bid);
-    if (isnum) {
+    if (status) {
+      setAlert('This advert is already accepted an offer.', 'danger');
+    } else if (isnum) {
       placeBid(advertId, { bid: bid });
       setAlert(`You have successfully placed your bid of ${bid}`, 'success');
       setBid('');
@@ -20,6 +27,8 @@ export const SingleAdvertBidForm = ({ advertId, placeBid, setAlert }) => {
       setAlert('Please try again.', 'danger');
     }
   };
+
+  console.log(status);
   return (
     <Fragment>
       <form onSubmit={(e) => submitBid(e)}>
@@ -31,6 +40,7 @@ export const SingleAdvertBidForm = ({ advertId, placeBid, setAlert }) => {
             value={bid}
             onChange={(e) => setBid(e.target.value)}
             placeholder='(TL) Place your bid here...'
+            disabled={status}
           />
           <button type='submit' id='bid-button'>
             Submit

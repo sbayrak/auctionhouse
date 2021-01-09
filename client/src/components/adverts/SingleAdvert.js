@@ -19,7 +19,7 @@ const SingleAdvert = ({
   useEffect(() => {
     getAdvertById(match.params.advertId);
   }, [getAdvertById, match.params.advertId]);
-
+  console.log(advert);
   return (
     <Fragment>
       {loading ? (
@@ -60,6 +60,7 @@ const SingleAdvert = ({
 
                     <SingleAdvertBidForm
                       advertId={advert._id}
+                      status={advert.status}
                     ></SingleAdvertBidForm>
 
                     <div className='single-advert-comment'>

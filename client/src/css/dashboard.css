@@ -234,11 +234,15 @@
   .profile-information
   .profile-information-bottom
   .profile-information-bottom-group
-  button {
+  a {
   width: 20%;
-  height: 40px;
+  height: 30px;
+  text-align: center;
   cursor: pointer;
   border: 2px solid #7ba5cf;
+  color: #7ba5cf;
+  padding: 25px 10px;
+  padding-top: 10px;
   border-radius: 5px;
   font-size: 18px;
   transition: 0.5s ease;
@@ -247,7 +251,7 @@
   .profile-information
   .profile-information-bottom
   .profile-information-bottom-group
-  button:hover {
+  a:hover {
   background-color: #7ba5cf;
   color: #fff;
 }
