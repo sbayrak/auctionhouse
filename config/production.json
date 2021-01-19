@@ -1,4 +1,4 @@
 {
-  "mongoURI": "mongodb+srv://suat1:suat1@auctionhouse.txvca.mongodb.net/auctionhouse?retryWrites=true&w=majority",
-  "jwtSecret": "jwtSecretKeyForAuctionHouse"
+  "mongoURI": "YOUR_MONGODB_URI",
+  "jwtSecret": "YOUR_JWT_SECRET"
 }
